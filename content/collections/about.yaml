@@ -1,0 +1,18 @@
+title: About
+sites:
+  - english
+  - usa
+  - france
+  - germany
+  - spain
+template: about/show
+layout: layout
+revisions: false
+route: '/{{ slug == ''careers'' ? ''working-here'' : ''about'' }}/{{slug}}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+structure:
+  root: false
+  max_depth: 1

@@ -1,0 +1,31 @@
+<div class="flex justify-between w-full p-2 ml-0 rounded md:ml-auto bg-light-grey">
+    {{# <span class="material-icon face">
+        face
+    </span> #}}
+
+
+    <form action="{{if homepage!="/"}}{{homepage}}{{/if}}/search" name="search" class="w-full">
+        <input class="w-full px-2 text-black placeholder-black outline-none bg-light-grey txt-xs md:text-sm"
+               type="search"
+               placeholder="{{trans:jonesco.search.bar :site="site.locale" }}"
+               value="{{ get:q ?? '' }}"
+               name="q"
+               x-ref="{{ ref ?? 'searchBar'}}"
+        >
+    </form>
+
+    <span class="material-icons-sharp text-blue md:order-first">
+        search
+    </span>
+    <span class="hidden cursor-pointer material-icons-sharp text-blue md:block"
+    @click="
+    toggleSearchBar()
+    ">
+        close
+    </span>
+</div>
+<div class="ml-2">
+    <div class="bg-blue">
+
+    </div>
+</div>

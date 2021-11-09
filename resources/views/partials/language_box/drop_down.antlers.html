@@ -1,0 +1,43 @@
+
+
+<div class="absolute z-50 hidden mt-2 font-semibold text-black rounded-md {{ triangle == "top" ? "-right-5" : "-left-3" }}  w-48 {{ position }} bg-light-grey lang-drop-down {{ ref }}" x-ref="{{ ref }}">
+    {{ if triangle == "top" }}
+        <div class="absolute hidden md:block triangle" style="top: -10px; right:27px;" ></div>
+        <div class="absolute md:hidden triangle" style="top: -10px; right:39px;"></div>
+    {{ /if }}
+    {{ if triangle == "bottom" }}
+        <div class="absolute hidden md:block bottomTriangle" style="bottom: -10px; left:18px;" ></div>
+        <div class="absolute md:hidden bottomTriangle" style="bottom: -10px; left:18px;"></div>
+    {{ /if }}
+    <ul class="flex flex-col justify-center overflow-hidden rounded-md">
+        
+        
+        {{ sites }}
+            <li class="flex">
+                {{ if segment_1 == "products" && segment_4}} {{# If your on the product page #}}
+                <a href="{{ url == '/' ? '' : url }}/{{segment_1}}/{{segment_2}}/{{ segment_3}}/{{ segment_4}}
+                {{ else }}
+                    {{ if segment_1 == "products" && segment_3}} {{# If your on the sortable cat page #}}
+                    <a href="{{ url == '/' ? '' : url }}/{{segment_1}}/{{segment_2}}/{{ segment_3}}
+                    {{ else }}
+                        {{ if segment_1 }} {{# If your on the sub cat page #}}
+                        <a href="{{ url == '/' ? '' : url}}/{{segment_1}}/{{segment_2}}
+                        {{ else }}
+                        {{# If your in a non product area #}}
+                        <a href="{{ url == '/' ? '' : url}}{{uri}}
+                        {{ /if }}
+                    {{ /if }}
+                {{ /if }}" class="flex w-full px-4 py-2 transition hover:bg-blue hover:text-white duration-250">
+                    <span class="w-14 mr-4 flag-icon flag-icon-{{ flag_icon_code :country='handle' }}"></span>
+                    <p class="">
+                        {{ if name  == "Jonesco UK" }} {{ trans:jonesco.navigation.lang_uk }} {{ /if }}
+                        {{ if name  == "Jonesco USA" }} {{ trans:jonesco.navigation.lang_usa }} {{ /if }}
+                        {{ if name  == "Jonesco France" }} {{ trans:jonesco.navigation.lang_fr }} {{ /if }}
+                        {{ if name  == "Jonesco Germany" }} {{ trans:jonesco.navigation.lang_de }} {{ /if }}
+                        {{ if name  == "Jonesco Spain" }} {{ trans:jonesco.navigation.lang_es }} {{ /if }}
+                    </p>
+                </a>
+            </li>
+        {{ /sites }}
+    </ul>
+</div>

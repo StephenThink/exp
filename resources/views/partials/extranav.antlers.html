@@ -1,0 +1,54 @@
+
+<ul class="relative flex justify-start border-black md:gap-3 md:ml-auto extrabar" :class="open ? 'md:text-white' : 'md:text-blue'">
+    <li class="absolute right-0 z-50 hidden overflow-hidden sliding-search-bar right-20 md:block">
+        <span class="block w-0">
+            {{ partial:partials/searchbar ref="slidingSearchBar" }}
+        </span>
+    </li>
+    <li class="flex px-3 pt-2 pb-0 border-t border-r border-black cursor-pointer md:border-0 md:p-0"
+    @click="
+    toggleSearchBar()
+    "
+    @click.away="lastArray()"
+    >
+        <span class="self-end md:self-center material-icons-sharp">
+        search
+        </span>
+    </li>
+    <li class="flex hidden px-2 pt-2 pb-0 md:block">
+        <a href="{{if homepage!="/"}}{{homepage}}{{/if}}/download-centre">
+
+            {{ if logged_in }}
+                <span class="md:self-center material-icons-sharp">
+                file_download
+                </span>
+            {{ else }}
+                <a href="{{ link to="login" }}">
+                <span class="md:self-center material-icons-sharp">
+                person
+                </span>
+            {{ /if }}
+        </a>
+    </li>
+    <li class="relative flex px-3 pt-2 pb-0 border-t border-black cursor-pointer md:border-0 md:p-0"
+    @click="
+    toggleLangBox(75, 0, 'topDown')
+    "
+    @click.away="lastArray()"
+
+    >
+        <span class="self-end md:self-center material-icons-sharp">
+        public
+        </span>
+    {{ partial:partials/language_box/drop_down ref="topDown" position="top-8" triangle="top" lang-bold="true" }}
+    </li>
+    {{ if logged_in }}
+    <li class="flex hidden px-2 pt-2 pb-0 md:block">
+        <a href="{{ user:logout_url }}">
+            <span class="md:self-center material-icons-sharp">
+                logout
+            </span>
+        </a>
+    </li>
+    {{ /if }}
+</ul>

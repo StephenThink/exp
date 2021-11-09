@@ -1,0 +1,59 @@
+title: Vacancies
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: hero
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: intro
+        field:
+          input_type: text
+          antlers: false
+          display: Introduction
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+      -
+        handle: job_id_label
+        field:
+          input_type: text
+          antlers: false
+          display: 'Job ID Label'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+          width: 50
+      -
+        import: read_more_navigation
+      -
+        import: blue_call_to_action
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden

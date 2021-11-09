@@ -1,0 +1,17 @@
+title: Pages
+sites:
+  - english
+  - france
+  - usa
+  - germany
+  - spain
+template: default
+layout: layout
+revisions: false
+route: '{parent_uri}/{slug}'
+sort_dir: asc
+structure:
+  root: true
+
+inject:
+  view_model: App\ViewModels\DownloadCentreData

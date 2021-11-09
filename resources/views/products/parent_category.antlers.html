@@ -1,0 +1,45 @@
+<div class="container mb-24 relative">
+
+    {{ partial:partials/page_header title="{{ category_title }}" introduction=" {{ category_description }}" }}
+
+    {{ if segment_2 == "commercial-vehicle" }}
+        <div class="hidden md:block absolute top-12 right-0 w-1/3 container cursor-pointer py-1 flex items-center">
+            {{ partial:partials/filter_bar/bar }}
+            
+            
+        </div>
+    {{ /if }}
+
+    {{ if segment_2 == "commercial-vehicle" }}
+        <div class="md:hidden w-full container cursor-pointer py-1 flex items-center">
+            {{ if site=="english"}}
+            {{ partial:partials/filter_bar/bar }}
+            {{ /if }}
+        </div>
+    {{ /if }}
+
+    <div class="main__panel">
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-3 xl:grid-cols-5">
+            {{ if slugs }}
+                {{ taxonomy :from="from" :slug:in="slugs" sort="sjj:asc " }}
+                    {{ partial:partials/product_category_inner}}
+                {{ /taxonomy }}
+            {{ /if }}
+        </div>
+    </div>
+
+</div>
+
+{{# <section class="bg-blue main__panel_small">
+    <div class="container text-center text-white">
+            <p class="mb-4 text-2xl font-bold font-white">{{ bcta_heading }}</p>
+            <p>
+                <a href="{{ link to="contact" }}" class="text-light-blue">{{ blue_call_to_action_content }}</a>
+                <!-- <span>{{ work_smarter.text_middle }}</span>
+                <a href="{{ link to="distributor" }}" class="text-light-blue">{{ work_smarter.distributor_text }}</a> -->
+            </p>
+
+
+    </div>
+</section> #}}
+

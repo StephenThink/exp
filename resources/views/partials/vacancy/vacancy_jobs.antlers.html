@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="flex w-full flex-wrap md:flex-rows gap-2 pt-4 tracking-tighter md:space-x-2">
+        {{ collection:vacancies }}
+            {{ if no_results }}
+            <p>{{ trans:jonesco.form.no_results }}</p>
+            {{ else }}
+                {{#<div class="flex flex-col justify-center w-full px-4 py-4 space-y-2 text-white rounded-md place-items-center bg-vacancy">
+                    <div class="text-lg font-bold">{{ title }}</div>
+                    <div class="font-semibold text-xxs">{{ job_id_label }}: {{ job_id }}</div>
+                    <a class="flex gap-2 pt-2 font-bold place-self-center" data-jobid="{{ job_id }}" @click="jobIdFill($event)">
+                        Apply
+                        <span class="material-icons-sharp">
+                        play_circle
+                        </span>
+                    </a>
+                </div>#}}
+
+                {{ partial:flipping_card what-am-i-flipping="vacancy" fixed-col="w-full md:w-64 md:h-96"  back-label="place-content-between" gap-size="my-1 "}}
+               
+            {{ /if }}
+        {{ /collection:vacancies }}
+
+        {{#
+        <div class="flex flex-col w-full px-4 py-4 text-white rounded-md md:w-40 place-items-center bg-vacancy">
+            <div class="flex justify-between w-full text-sm font-bold">
+                <div class="flex ">Title</div>
+                <div class="flex ">JOB ID: 0000</div>
+            </div>
+            <div class="pt-1 leading-tight text-xxs">Lionel began working for Jonesco in January 2014. Based in Seclin, he is the Sales Manager for France West. He loves that his job gives him the autonomy to achieve his goals and satisfy customers. Outside of work.
+            </div>
+            <div class="flex gap-2 pt-2 font-bold place-self-end">
+                Read More
+                <span class="material-icons-sharp">
+                play_circle
+                </span>
+            </div>
+
+        </div>
+
+        <div class="flex flex-col w-full px-4 py-4 text-white rounded-md md:w-40 place-items-center bg-light-blue">
+            <div class="font-bold place-self-start">Name</div>
+            <div class="pt-1 leading-tight text-xxs">Lionel began working for Jonesco in January 2014. Based in Seclin, he is the Sales Manager for France West. He loves that his job gives him the autonomy to achieve his goals and satisfy customers. Outside of work, Lionel enjoys skydiving and spending time with his family.</div>
+        </div>
+        #}}
+    </div>
+</div>
+

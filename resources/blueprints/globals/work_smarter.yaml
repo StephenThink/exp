@@ -1,0 +1,74 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: heading
+        field:
+          input_type: text
+          antlers: false
+          display: Heading
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+      -
+        handle: get_in_touch_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Get in Touch Text'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+      -
+        handle: text_middle
+        field:
+          input_type: text
+          antlers: false
+          display: 'Text Middle'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          unless: 1=1
+      -
+        handle: distributor_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Distributor Text'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          unless: 1=1
+      -
+        handle: smarter_link
+        field:
+          display: 'Smarter Link'
+          type: link
+          icon: link
+          listable: hidden
+          localizable: true
+      -
+        handle: before_link
+        field:
+          input_type: text
+          antlers: false
+          display: 'Before Link'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+      -
+        handle: after_link
+        field:
+          input_type: text
+          antlers: false
+          display: 'After Link'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true

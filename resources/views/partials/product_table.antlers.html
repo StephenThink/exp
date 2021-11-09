@@ -1,0 +1,118 @@
+<div
+        class="fixed top-0 right-0 w-screen h-screen transition-all duration-700 ease-in-out transform translate-x-full bg-black opacity-75 z-300 "
+        :class="{
+            'translate-x-full delay-300' : ! open,
+            'translate-x-0 delay-0' : open
+        }"
+    >
+
+    </div>
+
+    <div
+        class="fixed top-0 right-0 
+        w-full
+        {{# Change the pop out size depending on the size of the table headers #}}
+        {{ if distance:value == 1 }} md:w-1/3 {{ /if }}
+        {{ if distance:value == 2 }} md:w-1/2 {{ /if }}
+        {{ if distance:value == 3 }} md:w-3/4 {{ /if }}
+        h-screen transition-all duration-700 ease-in-out transform translate-x-full bg-white product-data z-300"
+        :class="{
+            'translate-x-full delay-0' : ! open,
+            'translate-x-0 delay-300' : open
+        }"
+    >
+
+        <div class="flex flex-col h-spacing relative ">
+            <div class="flex items-center px-6 py-5 my-auto">
+                <div class="text-xl">
+                    <div class="font-bold text-accent">{{ actual_title }}</div>
+                    <p class="">{{ trans:jonesco.product.product_table :site="site.locale" }}</p>
+                </div>
+                <span
+                    class="inline-flex items-center justify-center w-6 h-6 ml-auto leading-none text-white transition-all duration-200 rounded-full cursor-pointer bg-grey hover:bg-blue absolute top-4 right-4"
+                    @click.prevent=" open = ! open"
+                >x</span>
+            </div>
+            <div class="w-screen mt-auto bg-red-500 h-2px bg-accent"></div>
+
+        </div>
+
+
+{{#
+        <div class="p-5">
+                <div class="text-accent font-semibold">
+                    Part Number{{ if part_number | count > 1}}s{{ /if}}:
+                
+                    <span class="font-normal">
+                        {{ foreach:part_number }}
+                        {{ value }} {{ if !last }} / {{ /if }} 
+                        {{ /foreach:part_number }}
+
+                    </span>
+                </div>
+        </div>
+
+#}}            
+            {{#<table class="w-full border-collapse table-fixed">
+                    <thead class="mb-3 font-semibold text-accent" >
+                        
+                        {{ foreach:table_headers }}
+                            <th class="py-4">{{ value }}</th>
+                        {{ /foreach:table_headers }}
+                    </thead>
+    
+                    <tbody>
+                        {{ cells:count }}
+                        {{ product_table }}
+                            <tr class="text-center ">
+                                {{ cells }}
+                                    <td class="py-2"> {{ value }} </td>
+                                {{ /cells }}
+                            </tr>
+                        {{ /product_table}}
+                    </tbody>
+
+
+            </table>#}}
+            <div class="p-5 max-h-4/5 w-full overflow-scroll ">   
+                <table class="w-750 md:w-full border-collapse table table-fixed mt-4 overflow-x-scroll">
+
+                    
+
+                    {{ product_table }}
+                    
+                    {{ if first }}
+                    <thead class="mb-3 font-semibold bg-accent text-white pl-2 text-center">
+                    <tr>
+                        {{ cells }}
+                        <th class="text-sm md:text-md pl-2">{{ value|markdown }}</th>
+                        {{ /cells }}
+                    </tr>
+                    </thead>
+                    <tbody>
+                {{ /if }}
+                {{ if !first  }}
+                    {{ if first }}
+                    <tbody>
+                    {{ /if }}
+                    <tr class="text-left">
+                            
+                        {{ cells }}
+                        {{ if count == 1 }}  
+                        <td class="pl-2 font-semibold text-accent text-left text-sm md:text-md">{{ value|markdown }}</td>
+                        {{ else }}
+                        <td class="text-sm md:text-md text-center" pl-2>{{ value|markdown }}</td>
+                        {{ /if }}
+                        {{ /cells }}
+                    </tr>
+                    {{ if last }}
+                    </tbody>
+                    {{ /if }}
+                {{ /if }}
+                    {{ /product_table }}
+
+
+                </table>
+            </div>
+        </div>
+    </div>

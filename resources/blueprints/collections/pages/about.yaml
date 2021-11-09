@@ -1,0 +1,106 @@
+title: 'About Page'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: introduction
+        field:
+          antlers: false
+          display: Introduction
+          type: textarea
+          icon: textarea
+          localizable: true
+          listable: hidden
+          width: 75
+      -
+        handle: introduction_thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: 'Introduction Thumbnail'
+          type: assets
+          icon: assets
+          width: 33
+          listable: hidden
+      -
+        import: hero
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Thumbnail
+          type: assets
+          icon: assets
+          localizable: true
+          listable: hidden
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  smarter_choice:
+    display: 'Smarter Choice'
+    fields:
+      -
+        import: card_grid
+  wave_box_content:
+    display: 'Wave Box Content'
+    fields:
+      -
+        handle: grid_content
+        field:
+          collapse: false
+          sets:
+            wavebox_content:
+              display: 'Wavebox Content'
+              fields:
+                -
+                  import: wavebox
+          display: 'Grid Content'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true

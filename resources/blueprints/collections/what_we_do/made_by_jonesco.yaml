@@ -1,0 +1,134 @@
+title: 'Made by Jonesco'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+          localizable: true
+      -
+        import: hero
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Thumbnail
+          type: assets
+          icon: assets
+          listable: hidden
+          localizable: true
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  wave_box_content:
+    display: 'Wave Box Content'
+    fields:
+      -
+        handle: grid_content
+        field:
+          collapse: false
+          sets:
+            wavebox_content:
+              display: 'Wavebox Content'
+              fields:
+                -
+                  import: wavebox
+          display: 'Grid Content'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true
+  card_selection:
+    display: 'Card Selection'
+    fields:
+      -
+        handle: card_sets
+        field:
+          collapse: false
+          sets:
+            card_set:
+              display: 'Card Set'
+              fields:
+                -
+                  handle: set_title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Set Title'
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: card
+                  field:
+                    fields:
+                      -
+                        handle: title
+                        field:
+                          input_type: text
+                          antlers: false
+                          display: Title
+                          type: text
+                          icon: text
+                          listable: hidden
+                      -
+                        handle: image
+                        field:
+                          mode: grid
+                          container: assets
+                          folder: /
+                          restrict: false
+                          allow_uploads: true
+                          max_files: 1
+                          display: Image
+                          type: assets
+                          icon: assets
+                          listable: hidden
+                      -
+                        handle: text
+                        field:
+                          antlers: false
+                          display: Text
+                          type: textarea
+                          icon: textarea
+                          listable: hidden
+                    mode: table
+                    add_row: 'Add Card'
+                    reorderable: true
+                    display: Card
+                    type: grid
+                    icon: grid
+                    listable: hidden
+          display: 'Card Sets'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true

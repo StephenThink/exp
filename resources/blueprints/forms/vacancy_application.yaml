@@ -1,0 +1,94 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: job_id
+        field:
+          input_type: text
+          antlers: false
+          display: 'Job ID'
+          type: text
+          icon: text
+          listable: hidden
+          validate:
+            - required
+      -
+        handle: title
+        field:
+          input_type: text
+          antlers: false
+          display: Title
+          type: text
+          icon: text
+          listable: hidden
+          validate:
+            - required
+          localizable: true
+      -
+        handle: first_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'First name'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          validate:
+            - required
+          localizable: true
+      -
+        handle: last_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Last name'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          validate:
+            - required
+          localizable: true
+      -
+        handle: telephone
+        field:
+          input_type: text
+          antlers: false
+          display: Telephone
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          validate:
+            - required
+          localizable: true
+      -
+        handle: email
+        field:
+          input_type: email
+          antlers: false
+          display: Email
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: upload_cv
+        field:
+          mode: grid
+          container: assets
+          folder: cvs
+          restrict: true
+          allow_uploads: true
+          max_files: 1
+          display: 'Upload Cv'
+          type: assets
+          icon: assets
+          width: 50
+          listable: hidden
+          validate:
+            - required
+          localizable: true

@@ -1,0 +1,37 @@
+title: Gallery
+fields:
+  -
+    handle: gallery_images
+    field:
+      collapse: false
+      sets:
+        gallery_display:
+          display: 'Gallery Display'
+          fields:
+            -
+              handle: gallery_image
+              field:
+                mode: grid
+                container: assets
+                folder: /
+                restrict: false
+                allow_uploads: true
+                max_files: 1
+                display: 'Gallery Image'
+                type: assets
+                icon: assets
+                listable: hidden
+            -
+              handle: gallery_alternative_text
+              field:
+                input_type: text
+                antlers: false
+                display: 'Gallery Alternative Text'
+                type: text
+                icon: text
+                listable: hidden
+      display: 'Gallery Images'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      localizable: true

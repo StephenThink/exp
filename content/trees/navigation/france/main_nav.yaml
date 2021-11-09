@@ -1,0 +1,40 @@
+tree:
+  -
+    title: Jonesco
+    children:
+      -
+        entry: 39ec0fea-80a0-40e3-a8a9-a1b9ac9a2c60
+      -
+        entry: ecbb4506-b2ab-4945-9fb0-1604e4abcc0c
+      -
+        entry: d276f9aa-f045-4e62-a021-4116c7289b19
+      -
+        entry: f64c8c77-4997-4609-96ba-4a837d05c04d
+  -
+    title: 'Notre cœur de métier'
+    children:
+      -
+        entry: 75278701-bd5a-4984-b565-c466665c65df
+      -
+        entry: 0da6863a-82eb-44cc-96a2-029b1cf0cdd3
+  -
+    title: 'Ressources humaines'
+    children:
+      -
+        entry: 597ebce8-3c59-4dd2-8093-3aee1441ceeb
+      -
+        entry: b3de1ddf-b3fd-4f0d-a6b7-3fa4b02d4d1b
+      -
+        entry: d053eb1a-9a7b-45fb-baf9-57d9c37bd530
+      -
+        entry: 6b327c2a-842d-4c18-89dc-21206b883677
+  -
+    title: Actualités
+    children:
+      -
+        entry: ffa8fdb9-0953-4234-99fa-e38ca26e7838
+  -
+    title: Contactez-nous!
+    children:
+      -
+        entry: 68f6f790-42fa-4fc6-95e5-7a79ce88e4a8

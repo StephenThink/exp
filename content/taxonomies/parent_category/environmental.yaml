@@ -1,0 +1,31 @@
+title: 'Spill Containment'
+updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+updated_at: 1627908437
+blueprint: parent_category
+image: products/environmental/ibc-containment/ibc-spill-pallet/images-lr/Product_Image_776x776_(518x518_focus_area)-1IBC-SJ-500-005_01.jpg
+accent_title: 'Other products in this range'
+assets: accents/Fluid_Yellow.svg
+accent_image: accents/Fluid_Yellow.svg
+short_title: Containment
+accent_colour: 'rgba(246, 201, 0, 1)'
+sjj: 3
+localizations:
+  france:
+    title: Rétention
+    short_title: Rétention
+    accent_title: 'Autres produits de cette gamme'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1627481598
+  germany:
+    title: Umweltschutz
+    short_title: Umwelt
+    accent_title: 'Andere Produkte in dieser Reihe'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1627481610
+  spain:
+    title: 'Medio Ambiente'
+    accent_colour: 'rgba(246, 201, 0, 1)'
+    short_title: Medioambiental
+    accent_title: 'Otros productos de esta gama'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1632324011

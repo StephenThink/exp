@@ -1,0 +1,16 @@
+tree:
+  -
+    title: Products
+    children:
+      -
+        title: 'Commercial Vehicle'
+        url: /products/commercial-vehicle
+      -
+        title: 'Environmental & Spill'
+        url: /products/environmental
+      -
+        title: 'Fire & Safety'
+        url: /products/fire-and-safety
+      -
+        title: Storage
+        url: /products/storage

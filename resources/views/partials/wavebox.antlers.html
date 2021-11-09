@@ -1,0 +1,111 @@
+<section class="md:-mx-5 wave-box main__panel_small md:main__panel {{ design && last ? 'md:mb-56' : ''}} {{ design &&  !first && !last ? 'md:my-0 lg:my-2 xl:my-5 2xl:my-8' : ''}}">
+
+    <div class="relative">
+        
+        {{ if first || last }}
+            {{ if type == 'small' }}
+                {{ svg src="/assets/site/wave-white-small.svg" class="absolute bottom-0 hidden transform stroke-current text-light-grey md:-top-28 lg:-top-32 xl:-top-40 2xl:-top-44 -top-32  {{ flip ? 'rotate-y-180' : '' }} md:block"  }}
+            {{ else }}
+                {{ svg src="/assets/site/wave-white.svg" class="z-0 absolute bottom-0 hidden transform stroke-current text-light-grey md:-top-28 lg:-top-32 xl:-top-40 2xl:-top-44 -top-32 {{ flip ? 'rotate-y-180' : '' }} md:block"  }}
+                {{ svg src="/assets/site/wave-white.svg" class="z-1 absolute bottom-0 hidden transform stroke-current text-white md:top-56 {{ flip ? 'rotate-y-180' : '' }} md:block"  }}
+                {{# svg src="/assets/site/wave-white-small.svg" class="absolute bottom-0 hidden transform stroke-current text-light-grey -top-52 {{ flip ? 'rotate-y-180' : '' }} 2xl:block"  #}}
+            {{ /if }}
+        {{ /if}}
+
+        {{#<div class="container w-full grid grid-cols-1 md:grid-cols-3">
+            <div class="pt-4 pr-6 col-span-2">
+                <div class="flex flex-wrap">
+                        <h2 class="text-md md:text-xl font-bold md:text-3xl"
+                        data-aos='fade-right'
+                        data-duration="900"
+                        data-aos-delay="300"
+                        data-easing="ease-in-out"
+                        >
+                            {{ wave_title ?? introduction_title ?? title }} <span class="font-thin"> {{ extra-span ?? '' }}</span>
+                        </h2>
+                        <div class="mt-4 text-md md:text-xl"
+                        data-aos='fade-right'
+                        data-duration="900"
+                        data-aos-delay="500"
+                        data-easing="ease-in-out"
+                        >
+                        {{ introduction ?? excerpt ?? about}}
+                </div>
+                {{ if show_readmore }}
+                    <div class="flex mt-4"
+                    data-aos='fade-right'
+                    data-duration="900"
+                    data-aos-delay="700"
+                    data-easing="ease-in-out">
+                        {{ partial:partials/readmore :text="link_text" text_color="text-light-blue" display="inline-block" classes=" text-xl place-self-start" icon_bg="bg-light-blue" }}
+                    </div>
+                {{ /if }}
+                </div>
+            </div>
+            
+            <div class="w-full md:w-80 md:h-80 pt-4 md:pt-0 ml-0 md:ml-5">
+                    <div class="relative w-full h-full md:z-2">
+                        {{ if leadership-panel }}
+                        {{ leaders_image }}
+                            <img class=" w-full h-full" src="{{ url }} " alt="{{ alt }}">
+                        {{ /leaders_image }}
+                        {{ else }}
+                        {{ wave_thumbnail }}
+                            <img class="absolute object-cover w-full h-full" src="{{ url }} " alt="{{ alt }}">
+                        {{ /wave_thumbnail }}
+                        {{ /if }}
+                    </div>
+                </div>
+
+           
+
+
+        </div>#}}
+
+
+        <div class="container row flex md:my-12 md:flex-none w-full relative md:z-1  {{ if !txt-first }}{{ last == 1 || first == 1 ?= 'md:flex-row-reverse' }}{{ /if }} flex-col md:flex-row md:justify-between">
+            <div class="py-4 md:mx-4 w-full {{ no-gap ? "md:w-8/12" : md:w-1/2  }} {{ last == 1  ? 'md:pl-6' : 'md:pr-6'  }}">
+                <h2 class="text-4xl md:text-2xl lg:text-4xl font-bold {{ move-down ? 'lg:pt-10' : '' }}"
+                data-aos='fade-right'
+                data-duration="900"
+                data-aos-delay="300"
+                data-easing="ease-in-out"
+                >
+                {{ wave_title ?? introduction_title ?? title }} <span class="font-thin"> {{ extra-span ?? '' }}</span></h2>
+                <div class="mt-4 text-lg md:text-md lg:text-xl xl:text-2xl"
+                data-aos='fade-right'
+                data-duration="900"
+                data-aos-delay="300"
+                data-easing="ease-in-out"
+                >
+                    {{ introduction ?? excerpt ?? about}}
+                </div>
+                {{ if show_readmore }}
+                    <div class="flex mt-4"
+                    data-aos='fade-right'
+                    data-duration="900"
+                    data-aos-delay="500"
+                    data-easing="ease-in-out">
+                        {{ partial:partials/readmore :text="link_text" text_color="text-light-blue" display="inline-block" classes=" text-xl place-self-start" icon_bg="bg-light-blue" }}
+                    </div>
+                {{ /if }}
+            </div>
+            {{ if no-gap }}
+            {{ else }}
+            <div class="hidden w-1/6 md:block"></div>
+            {{ /if}}
+            <div class="h-80 -mx-5 md:w-80 md:h-80 xl:h-96 xl:w-96 pt-2 md:pt-0">
+                <div class="relative w-full h-full md:z-2">
+                        {{ wave_thumbnail }}
+                        <img class="absolute object-cover w-full h-full" src="{{ url }} " alt="{{ alt }}">
+                        {{ /wave_thumbnail }}
+                        {{ leaders_image }}
+                            <img class="absolute object-cover w-full h-full" src="{{ url }} " alt="{{ alt }}">
+                        {{ /leaders_image }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,18 @@
+title: News
+sites:
+  - english
+  - usa
+  - france
+  - germany
+  - spain
+template: news/show
+layout: layout
+revisions: false
+route: '/news/{slug}'
+date: true
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+inject:
+  view_model: App\ViewModels\NewsAdditionalData

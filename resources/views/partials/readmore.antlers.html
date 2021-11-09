@@ -1,0 +1,48 @@
+{{ if link_text }}
+    {{ if no_read_more }}
+    <a href="{{ url }}" class="text-xs  flex items-center transition duration-300 hover:text-blue {{ text_color ?? 'text-light-grey'}} {{ classes }} ">
+        
+        <span class="material-icons-sharp {{ icon_bg ?? 'bg-grey' }} text-white rounded-full icon">
+            chevron_right
+        </span>
+    </a>
+
+    {{ else }}
+        {{ if link_to  }}
+            {{ link_to  }}
+                <a href="{{ url }}" class="readmore-button {{ display ?? 'block' }} text-xs  flex items-center transition duration-300 hover:text-blue {{ text_color ?? 'text-light-grey'}} {{ classes }} ">
+                    <span class="mr-2 ">
+                        {{#  Cant use php null coalesce so default to if #}}
+                        {{# looks as if it's to do with the trans tag.  #}}
+                        {{# if text }}
+                            {{ text }}
+                        {{ else }}
+                            {{ trans:jonesco.site.readmore }}
+                        {{ /if #}}
+                        {{ text }}
+                    </span>
+                    <span class="material-icons-sharp {{ icon_bg ?? 'bg-light-grey' }} text-white rounded-full icon">
+                        chevron_right
+                    </span>
+                </a>
+            {{ /link_to}}
+
+        {{ else }}
+            <a href="{{ url }}" class="readmore-button {{ display ?? 'block' }} text-xs  flex items-center transition duration-300 hover:text-blue {{ text_color ?? 'text-light-grey'}} {{ classes }} ">
+                <span class="mr-2 ">
+                    {{#  Cant use php null coalesce so default to if #}}
+                    {{# looks as if it's to do with the trans tag.  #}}
+                    {{# if text }}
+                        {{ text }}
+                    {{ else }}
+                        {{ trans:jonesco.site.readmore }}
+                    {{ /if #}}
+                    {{text}}
+                </span>
+                <span class="material-icons-sharp {{ icon_bg ?? 'bg-light-grey' }} text-white rounded-full icon">
+                    chevron_right
+                </span>
+            </a>
+        {{ /if }}
+    {{ /if }}
+{{ /if }}

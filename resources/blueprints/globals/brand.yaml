@@ -1,0 +1,14 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: menu_slogan
+        field:
+          input_type: text
+          antlers: false
+          display: 'Menu Slogan'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden

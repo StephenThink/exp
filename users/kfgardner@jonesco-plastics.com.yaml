@@ -1,0 +1,12 @@
+name: 'Kathryn Gardner'
+roles:
+  - jonesco_admin
+groups:
+  - editor
+parent_categories:
+  - commercial-vehicle
+  - fire-and-safety
+  - environmental
+  - storage
+id: a76dafa4-b7b5-4911-ad55-421bfbcef2db
+password_hash: $2y$10$vV.4ITs2MzyiIsDxB8/NkO/VnJ3sLqU0fHBt1wckbCurjH.ZrcpJG

@@ -1,0 +1,9 @@
+<div class=" w-full md:w-40 xl:w-56 rounded-xl " {{ aosdata }}>
+    <div class=" h-full flex flex-col justify-between bg-white rounded-xl p-4 transition duration-300 hover:shadow-2xl  transform hover:-translate-y-2" >
+        <p class="text-black font-semibold text-sm">{{ title }}</p>
+        {{ image }}
+            <img src="{{ url }}" alt="{{ alt }}" class="h-64 object-contain">
+        {{ /image }}
+        {{ partial:partials/readmore url="/products/{{slug}}" icon_bg="bg-grey" no_read_more="true" }}
+    </div>
+</div>

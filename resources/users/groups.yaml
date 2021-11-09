@@ -1,0 +1,10 @@
+editor:
+  title: Editor
+  roles:
+    - user_news
+    - user_about
+    - user_legal
+    - user_product
+    - user_vacancy
+    - user_what_we_do
+    - user_working_here

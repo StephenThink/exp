@@ -1,0 +1,15 @@
+title: 'What We Do'
+sites:
+  - english
+  - usa
+  - france
+  - germany
+  - spain
+template: default
+layout: layout
+revisions: false
+route: '/what-we-do/{{slug}}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private

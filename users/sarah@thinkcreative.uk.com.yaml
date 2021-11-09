@@ -1,0 +1,14 @@
+name: Sarah
+super: true
+taxonomy_terms:
+  - commercial-vehicle
+  - fire-and-safety
+  - environmental
+  - storage
+parent_categories:
+  - commercial-vehicle
+  - fire-and-safety
+  - environmental
+  - storage
+id: 38a879cd-5442-470d-bd9d-bca954c84e11
+password_hash: $2y$10$AkPvPZDiGKzrdlLMgafOTuvDVZ5yo150tHpxvs9GcBhnjRAtrNxvK

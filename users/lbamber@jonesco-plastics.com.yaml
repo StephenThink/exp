@@ -1,0 +1,33 @@
+name: Lynn
+roles:
+  - jonesco_admin
+  - 500_fixer
+  - user_editor
+parent_categories:
+  - commercial-vehicle
+  - environmental
+  - fire-and-safety
+  - storage
+id: 3ec554c2-e8cb-4f28-af79-effcd537d274
+password_hash: $2y$10$IqXXotsXIL3f51bP0r9b1.Kos69EnrJ4uNUU9JE7d.7pYn0aC372G
+preferences:
+  collections:
+    what_we_do:
+      after_save: continue_editing
+    about:
+      after_save: continue_editing
+  taxonomies:
+    sortable_category:
+      columns:
+        - title
+        - slug
+        - image
+        - content
+        - sort_order
+    sub_categories:
+      columns:
+        - title
+        - slug
+        - image
+        - content
+        - sjj

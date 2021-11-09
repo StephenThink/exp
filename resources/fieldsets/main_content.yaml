@@ -1,0 +1,74 @@
+title: 'Main Content'
+fields:
+  -
+    handle: blue_intro
+    field:
+      antlers: false
+      display: 'Blue Intro'
+      type: textarea
+      icon: textarea
+      listable: hidden
+      localizable: true
+  -
+    handle: content_intro
+    field:
+      restrict: false
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      smartypants: false
+      antlers: false
+      display: 'Content Intro'
+      type: markdown
+      icon: markdown
+      listable: hidden
+      localizable: true
+  -
+    handle: content_image
+    field:
+      mode: grid
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      display: 'Content Image'
+      type: assets
+      icon: assets
+      listable: hidden
+      localizable: true
+  -
+    handle: content_after_image
+    field:
+      restrict: false
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      smartypants: false
+      antlers: false
+      display: 'Content After Image'
+      type: markdown
+      icon: markdown
+      listable: hidden
+      localizable: true
+  -
+    handle: content_quote
+    field:
+      antlers: false
+      display: 'Content Quote'
+      type: textarea
+      icon: textarea
+      listable: hidden
+      localizable: true
+  -
+    handle: content_outro
+    field:
+      restrict: false
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      smartypants: false
+      antlers: false
+      display: 'Content Outro'
+      type: markdown
+      icon: markdown
+      listable: hidden
+      localizable: true

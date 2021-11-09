@@ -1,0 +1,36 @@
+<div class="relative lg:container w-full xl:w-3/4 2xl:w-2/3 main__panel ">
+    {{ if media_sets }}
+        <div class="z-250 grid grid-cols-1 justify-items-center md:grid-cols-3 lg:mx-5">
+            {{ media_sets }}
+            <div class="flex flex-col p-2 mt-4 text-center md:mt-0 md:w-64" data-aos='fade-up'
+            data-duration="900"
+            data-aos-delay="300"
+            data-easing="ease-in-out">
+                {{ if media_type === 'youtube' }}
+                    {{ if youtube_link | is_embeddable }}
+                        <iframe src="{{ youtube_link | embed_url }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media;" allowfullscreen class="h-64 border-2 border-black rounded-lg"></iframe>
+                    {{ /if }}
+                {{ /if }}
+
+                {{ if media_type !== 'youtube' }}
+                    <a href="{{ media_link ?? media_pdf }}" class="flex justify-center h-64 rounded-lg bg-blue">
+                        <span class="flex text-white place-items-center">
+                            <span class="material-icons-sharp" style="font-size:100px;">
+                                {{ if media_type === 'pdf' }}
+                                    picture_as_pdf
+                                {{ else }}
+                                    description
+                                {{ /if }}
+                            </span>
+                        </span>
+                    </a>
+                {{ /if }}
+                <div class="mt-4 text-xl font-semibold ">{{ media_text }}</div>
+                <div class="mt-4 text-sm">{{ media_caption }}</div>
+            </div>
+            {{ /media_sets }}
+        </div>
+    {{ else }}
+        {{#No Media Entry#}}
+    {{ /if}}
+    </div>

@@ -1,0 +1,112 @@
+<div class="h-full">
+    {{ partial:partials/hero mini="true" }}
+
+    <div class=" container main__panel_small grid grid-cols-1 md:grid-cols-2 ">
+
+        <div class="mb-12 md:mb-0">
+            <h2 class="font-semibold text-2xl text-grey mb-2" data-aos="fade-right">{{ left_side_title }}</h2>
+            {{ jonesco_sites }}
+                {{ site }}
+                    <div class="mb-12"  >
+                        <h4 class="font-bold text-xl mb-3" data-aos="fade-right" data-aos-duration="700" data-aos-delay="{{ count | multiply:100 }}">
+                            {{ site_name }}
+                        </h4>
+                        <div class="relative w-4/6 pb-1/4 mb-3" data-aos="fade-right" data-aos-duration="700" data-aos-delay="{{ count | multiply:100 }}" >
+                            {{ site_image }}
+                                <img class="absolute h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+                            {{ /site_image }}
+                        </div>
+
+                        <div class="w-1/2 mb-1" data-aos="fade-right" data-aos-duration="700" data-aos-delay="{{ count | multiply:100 }}">
+                            {{ address }}
+                        </div>
+
+                        <div class="mb-1" data-aos="fade-right" data-aos-duration="700" data-aos-delay="{{ count | multiply:100 }}"> Phone : {{ number}}</div>
+                        
+                        {{ if site_link }}
+                            <a href="{{ site_link }}" data-aos="fade-right" data-aos-duration="700" data-aos-delay="{{ count | multiply:100 }}">Find us</a>
+                        {{ /if }}
+                    </div>
+                {{ /site }}
+            {{ /jonesco_sites }}
+        </div>
+
+        <div class="" >
+            <div class="mb-16">
+                <h2 class="font-bold text-2xl text-grey mb-2" data-aos="fade-right">{{ right_side_title }}</h2>
+                <h3 class="font-bold text-2xl text-black mb-2" data-aos="fade-right" data-aos-delay="50">{{ right_side_subheader }}</h3>
+                {{ if success }}
+                    <div class="w-full px-4 py-2 bg-blue text-white">
+                        {{ trans:jonesco.site.contact.success }}
+                    </div>
+                    {{ else }}
+                    {{ if errors }}
+                    <div class="w-full px-4 py-2 bg-red-400 text-white">
+                        {{ trans:jonesco.site.contact.error }}
+                    </div>
+                    {{ /if }}
+                    {{ form:contact_form }}
+                    {{ captcha:head }}
+
+                    {{#dump#}}
+                    <div data-aos="fade-right">
+                        {{ fields }}
+                        <div class="mb-3">
+                            <label class="block">
+                                {{if display == "Who do you need to Speak to?"}} {{ trans:jonesco.contact.help_with }} {{ /if }}
+                                {{if display == "Your Name"}} {{ trans:jonesco.contact.name }} {{ /if }}
+                                {{if display == "Your Email"}} {{ trans:jonesco.contact.email }} {{ /if }}
+                                {{if display == "Your Company"}} {{ trans:jonesco.contact.company }} {{ /if }}
+                                {{if display == "Message"}} {{ trans:jonesco.contact.message }} {{ /if }}
+                                {{if display == "Telephone Number"}} {{ trans:jonesco.contact.telephone }} {{ /if }}
+                                {{if display == "Location"}} {{ trans:jonesco.contact.mylocation }} {{ /if }}
+                                {{if display == "Company Website"}} {{ trans:jonesco.contact.website }} {{ /if }}
+                                
+                            </label>
+                            {{ field }}
+                            {{ if error }}
+                            <p class="text-sm text-red-500">{{ error }}</p>
+                            {{ /if }}
+                            
+                        </div>
+                        {{ /fields }}
+                        <input type="hidden" name="jonesco_site_box" value="">
+                        
+                        <div class="my-2">
+                            {{ captcha }}
+                        </div>
+                        {{ if error:captcha }}
+                          <div class="text-sm text-red-500">{{ error:captcha }}</div>
+                        {{ /if }}
+
+                        <button type="submit" class="bg-light-blue rounded text-white hover:bg-blue transition duration-300 p-2">{{ trans:jonesco.site.send }}</button>
+                    </div>
+                    
+                    {{ /form:contact_form }}
+                {{ /if }}
+                </div>
+                
+
+
+          
+                
+            <div class="mb-8 flex ">
+                <h2 class="font-semibold text-2xl text-black mb-2">{{ trans:jonesco.site.social }}</h2>
+                {{# {{ dump }} #}}
+                <div class="ml-12 flex items-center">
+                    {{ socials }}
+                        <a href="{{ social_link }}" class="inline-flex ml-3">
+                            
+                            {{ svg src="{{ social_icon }}" class="fill-current text-light-blue hover:text-blue transition duration-300 h-6 w-6" }}
+                        </a>
+                    {{ /socials }}
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>

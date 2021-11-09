@@ -1,0 +1,14 @@
+<div class="relative flex items-center text-xs cursor-pointer text-light-blue" @click="
+toggleLangBoxFooter(0, 75, 'downTop')
+">
+    {{ partial:partials/language_box/drop_down ref="downTop" position="bottom-8" triangle="bottom" }}
+
+    <span class="mr-1 material-icons-sharp">
+        public
+    </span>
+    <span class="{{ lang-bold ? 'font-bold' : 'semi-bold' }}">
+        {{ trans:jonesco.navigation.language_selector }}
+    </span>
+
+
+</div>

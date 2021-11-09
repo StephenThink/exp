@@ -1,0 +1,83 @@
+<div class="container" x-data="mudguard()" x-init="init()">
+    
+    {{ partial:partials/page_header intro="{{content}}" }}
+        
+    <div class="main__panel">
+
+        <div class="bg-blue text-white rounded-lg">
+
+            <form action="">
+                <div class="flex flex-col lg:flex-row justify-center py-8">
+                    {{ foreach:form_labels as="handle|label" }}
+                        <div class="flex flex-col px-2 {{ last ?= ' lg:border-l-2 lg:border-light-blue lg:pl-8' }}">
+                            <label for="{{ handle }}" class="font-bold text-sm text-light-blue" >{{ label }}</label>
+                            <select 
+                                class="mt-1 text-black p-2 rounded-sm w-full lg:w-36 appearance-none custom-select bg-white disabled:opacity-50" 
+                                x-model="formData.{{handle}}" 
+                                name="{{ handle }}" 
+                                id="{{ label }}" 
+                                @change="updateQuery"
+                                x-ref="{{ handle }}"
+                                :disabled="isLoading"
+                            >
+                            
+                                <option value="">All</option>
+                                <template x-for="value in allValues.{{handle}}">
+                                    <option :value="value" :selected="formData.{{handle}} == value" x-text="value"></option>
+                                </template>
+                                {{# {{ unique_options:getOptions :name="handle" }}
+                                    {{ options }}
+                                        <option value="{{ value }}">{{ value }}</option>
+                                    {{ /options }}
+                                {{ /unique_options:getOptions }} #}}
+                            </select>
+                        </div>
+                    {{ /foreach:form_labels }}
+                </div>
+            </form>
+
+        </div>
+
+
+        <div class="container">
+                <template x-if="isLoading">
+                    <span class="flex h-24 w-24 relative mt-24 mx-auto justify-center">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-24 w-24 bg-light-blue"></span>
+                    </span>
+
+                </template>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mudguard-results py-8" x-ref="mudguard-results">
+
+                <template x-for="product in products ">
+                    <a :href="productURL + product.product_slug">
+                        <div class="border border-1 border-light-grey p-4 rounded-lg flex flex-col h-full items-center justify-center transform hover:-translate-y-2">
+                            <p class="font-bold" x-text="product.part_number"></p>
+                            <template x-if="product.france_only">
+                                <p  class="bg-green-500">FRANCE</p>
+                            </template>
+
+                            <template x-if="product.image">
+                                <div>
+                                    <img :src="product.image.permalink" alt="">
+                                </div>
+                                <div class="flex items-center text-light-grey"><span class="mr-2">
+                                        {{#  Cant use php null coalesce so default to if #}}
+                                        {{# looks as if it's to do with the trans tag.  #}}
+                                            {{ trans:jonesco.site.readmore }}
+                                    </span>
+                                    <span class="material-icons-sharp {{ icon_bg ?? 'bg-light-grey' }} text-white rounded-full icon">
+                                        chevron_right
+                                    </span></div>
+                            </template>
+                            
+                        </div>
+                    </a>
+                </template>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

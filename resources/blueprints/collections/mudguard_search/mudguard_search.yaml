@@ -1,0 +1,104 @@
+title: 'Mudguard Search'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: product_slug
+        field:
+          input_type: text
+          antlers: false
+          display: 'Product Slug'
+          type: text
+          icon: text
+          width: 33
+          listable: hidden
+      -
+        handle: part_number
+        field:
+          input_type: text
+          antlers: false
+          display: 'Part Number'
+          type: text
+          icon: text
+          width: 33
+          listable: hidden
+      -
+        handle: france_only
+        field:
+          display: 'France Only'
+          type: toggle
+          icon: toggle
+          width: 33
+          listable: hidden
+      -
+        handle: mudguard
+        field:
+          input_type: text
+          antlers: false
+          display: Mudguard
+          type: text
+          icon: text
+          width: 33
+          listable: hidden
+      -
+        handle: finish
+        field:
+          input_type: text
+          antlers: false
+          display: Finish
+          type: text
+          icon: text
+          width: 33
+          listable: hidden
+      -
+        handle: axle_type
+        field:
+          input_type: text
+          antlers: false
+          display: 'Axle Type'
+          type: text
+          icon: text
+          width: 33
+          listable: hidden
+      -
+        handle: image
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Image
+          type: assets
+          icon: assets
+          listable: hidden
+          width: 50
+      -
+        handle: tyre_size
+        field:
+          mode: dynamic
+          display: 'Tyre Size'
+          type: array
+          icon: array
+          listable: hidden
+          width: 50
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required

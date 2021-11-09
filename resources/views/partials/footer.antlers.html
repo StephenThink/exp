@@ -1,0 +1,49 @@
+
+<footer class="relative bg-white main__panel_small">
+    {{#{{ svg src="/assets/accents/Fluid_Blue.svg" class="absolute bottom-0 right-0 hidden w-1/3 text-white stroke-current md:block"  }}#}}
+    <div id="svgContainer" class="absolute bottom-0 right-0 hidden w-1/2 md:block pointer-events-none"></div>
+    
+    <div class="container">
+        <div class="grid w-full grid-cols-2  pt-4 md:w-2/3 ">
+            {{ nav:footer_navigation }}
+            <li class="w-full list-none ">
+                <a class="flex justify-between w-full font-semibold text-md  {{ depth == 1 ?= 'mb-1' }}" href="{{ depth == 1 ? '#' : url }}">
+                    {{ title }}
+                </a>
+                {{ if children }}
+                    <ul class="w-full mb-2 text-lg font-bold md:text-3xl text-grey pt-0">
+                        {{ *recursive children* }}
+                    </ul>
+                {{ /if }}
+            </li>
+            {{ /nav:footer_navigation }}
+        </div>
+    </div>
+    <div class="container">
+            <div class="grid w-full grid-cols-1 md:w-1/2 px-0 main__panel_small">
+                <div class="mr-12 flex items-center ">
+                    {{ footer:social_media }}
+                    
+                        <a href="{{ social_linkage }}" class="inline-flex mr-3">
+                            {{ svg src="{{ social_image }}" class="fill-current text-light-blue hover:text-blue transition duration-300 h-6 w-6"}}
+                        </a>
+                    {{ /footer:social_media }}
+                </div>
+            </div>
+        
+            <div class="flex flex-col md:flex-nowrap w-full pt-3 space-y-3 md:pt-0 md:space-y-0 md:w-3/4 md:flex-row">
+                {{ nav:legal }}
+                    <a class="w-full  md:w-1/3 text-xs font-medium text-black" href="{{ url }}">
+                        {{ title }}
+                    </a>
+                {{ /nav:legal }}
+            </div>
+        
+        <div class="flex flex-wrap w-full pt-3 text-xs font-medium text-black md:space-x-10 md:w-3/4">
+            <div class="copyright">
+                &copy; 1967 - {{ date format="Y"}} {{ site:name }}
+            </div>
+            
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,17 @@
+<select 
+    class="border-2 border-light-blue rounded bg-transparent placeholder-black w-full text-sm text-black outline-none px-2 py-2 font-bold {{ error ?= 'border border-red-500' }}"
+    name="{{ handle }}{{ multiple ?= "[]" }}" {{ multiple ?= "multiple" }}>
+    
+    {{ foreach:options as="value|label" }}
+        <option class="font-bold" value="{{ value }}" {{ if old|in_array:value or old === value }}selected{{ /if }}>
+        {{ if label == 'Please Select' }} {{ trans:jonesco.select.select }} {{ /if }}
+        {{ if label == 'Sales' }} {{ trans:jonesco.select.sales }} {{ /if }}
+        {{ if label == 'Purchasing' }} {{ trans:jonesco.select.purchasing }} {{ /if }}
+        {{ if label == 'Customer Services' }} {{ trans:jonesco.select.customer }} {{ /if }}
+        {{ if label == 'Despatch' }} {{ trans:jonesco.select.despatch }} {{ /if }}
+        {{ if label == 'HR' }} {{ trans:jonesco.select.hr }} {{ /if }}
+        {{ if label == 'Marketing' }} {{ trans:jonesco.select.marketing }} {{ /if }}
+        </option>
+    {{ /foreach:options }}
+    
+</select>

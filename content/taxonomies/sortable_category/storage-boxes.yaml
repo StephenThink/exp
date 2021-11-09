@@ -1,0 +1,17 @@
+title: 'Storage Boxes'
+updated_by: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+updated_at: 1632232352
+sort_order: 2
+localizations:
+  france:
+    title: 'Coffres De Rangement'
+    updated_by: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+    updated_at: 1631173704
+  germany:
+    title: Staukästen
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1629283014
+  spain:
+    title: 'Cajas de Almacenaje'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632136827

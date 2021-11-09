@@ -1,0 +1,17 @@
+title: 'Emergency Response Storage Boxes'
+updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+updated_at: 1632829816
+sort_order: 6
+localizations:
+  france:
+    title: 'Coffre Kit D’intervention'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1628599120
+  germany:
+    title: Notfallkoffer
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1628599204
+  spain:
+    title: 'Cajas de Almacenamiento de Emergencia'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632218945

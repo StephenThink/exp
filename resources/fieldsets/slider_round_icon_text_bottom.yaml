@@ -1,0 +1,66 @@
+title: 'Slider: Round Icon Text Bottom'
+fields:
+  -
+    handle: department_managers_title
+    field:
+      input_type: text
+      antlers: false
+      display: 'Slider Title'
+      type: text
+      icon: text
+      localizable: true
+      listable: hidden
+  -
+    handle: department_managers
+    field:
+      collapse: false
+      sets:
+        manager:
+          display: manager
+          fields:
+            -
+              handle: name
+              field:
+                input_type: text
+                antlers: false
+                display: Heading
+                type: text
+                icon: text
+                width: 50
+                listable: hidden
+            -
+              handle: job_title
+              field:
+                input_type: text
+                antlers: false
+                display: Subheading
+                type: text
+                icon: text
+                width: 50
+                listable: hidden
+            -
+              handle: image
+              field:
+                mode: grid
+                container: assets
+                folder: /
+                restrict: false
+                allow_uploads: true
+                max_files: 1
+                display: Image
+                type: assets
+                icon: assets
+                listable: hidden
+            -
+              handle: about
+              field:
+                antlers: false
+                display: About
+                type: textarea
+                icon: textarea
+                listable: hidden
+      display: 'Slider Items'
+      type: replicator
+      icon: replicator
+      localizable: true
+      listable: hidden

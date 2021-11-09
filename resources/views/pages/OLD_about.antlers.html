@@ -1,0 +1,32 @@
+<div class="h-full">
+    
+    {{ partial:partials/page_header }}
+    
+    <div class="container main__panel hidden md:block">
+        <div class="flex gap-4">
+            <div class="w-full md:w-8/12 flex flex-col">
+                {{ collection:about limit="2"}}
+                    {{ partial:partials/about_card }}
+                {{ /collection:about }}
+            </div>
+
+            <div class="w-full md:w-4/12 flex flex-col">
+                {{ collection:about offset="2"}}
+                    {{ partial:partials/about_card }}
+                {{ /collection:about }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container main__panel block md:hidden">
+        <div class="grid grid-cols-2 gap-4">
+            {{ collection:about }}
+                {{ partial:partials/about_card }}
+            {{ /collection:about }} 
+        </div>
+    </div>
+    
+    {{ partial:partials/card_grid }}
+
+</div>

@@ -1,0 +1,67 @@
+<div class="h-full">
+    {{ if hero_image }}
+        {{ if half_width_hero }}
+            {{ partial:partials/hero_half }}
+        {{ else }}
+            {{ partial:partials/hero  no_subtitle="true" }}
+        {{ /if }}
+    {{ /if }}
+    <div class="pt-24"></div>
+    {{#  intro #}}
+    {{ if introduction }}
+        <div class="container flex pb-12 introduction">
+            <div class="hidden w-2/12 md:block"></div>
+            <div class="w-1/2">
+                {{ introduction }}
+            </div>
+        </div>
+    {{ /if }}
+
+    {{ if about_content }}
+
+        <div class="container pb-12 about_content">
+
+                <div class="flex mb-6">
+                    <div class="hidden w-2/12 md:block"></div>
+                    <div class="w-1/2">
+                        {{ if content_title }}
+                        <h2 class="mb-4 text-2xl font-bold">{{ content_title }}</h2>
+                        {{ /if }}
+                        <div class="flex">
+                            {{ about_content}}
+                                <div class="w-1/2 mb-4">
+                                    {{ if header }}
+                                        <h2 class="mb-4 text-2xl font-bold">{{ header }}</h2>
+                                    {{ /if }}
+
+                                    {{ if image }}
+                                        <div class="relative mb-3 pb-1/2">
+                                            {{ image }}
+                                                <img class="absolute object-cover w-full h-full" src="{{ url }}" alt="{{ alt }}">
+                                            {{ /image }}
+                                        </div>
+                                    {{ /if }}
+                                    {{ if content }}
+                                        <p>{{ content }}</p>
+                                    {{ /if }}
+
+                                </div>
+                            {{ /about_content }}
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    {{ /if }}
+
+    {{ if card_grid }}
+        {{ partial:partials/_card_grid classes="pb-12" }}
+    {{ /if }}
+
+    {{ if link_set }}
+        {{ partial:partials/_link_set }}
+    {{ /if }}
+
+    <div class="-mb-12"></div>
+
+</div>

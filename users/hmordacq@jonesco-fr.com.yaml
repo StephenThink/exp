@@ -1,0 +1,10 @@
+name: hermance
+roles:
+  - jonesco_admin
+parent_categories:
+  - commercial-vehicle
+  - environmental
+  - fire-and-safety
+  - storage
+id: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+password_hash: $2y$10$C3OOFksp4L9WqwmKpV.cxezuwRDkMDFyYa.QZCURQA8VQfLzym06G

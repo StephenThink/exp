@@ -1,0 +1,67 @@
+title: People
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+          localizable: true
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Thumbnail
+          type: assets
+          icon: assets
+          listable: hidden
+          localizable: true
+      -
+        import: hero
+      -
+        import: wavebox
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+  staff:
+    display: Staff
+    fields:
+      -
+        import: slider_round_icon_text_bottom
+  wave_box_content:
+    display: 'Wave Box Content'
+    fields:
+      -
+        handle: grid_content
+        field:
+          collapse: false
+          sets:
+            wavebox_content:
+              display: 'Wavebox Content'
+              fields:
+                -
+                  import: wavebox
+          display: 'Grid Content'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true

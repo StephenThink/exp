@@ -1,0 +1,13 @@
+name: test
+super: false
+groups:
+  - editor
+roles:
+  - basic
+parent_categories:
+  - commercial-vehicle
+  - fire-and-safety
+  - environmental
+  - storage
+id: ff50a3c0-5d60-49b0-aa6c-995b8463631b
+password_hash: $2y$10$qV.QEt4oxaVe2WhI6FiLnuY4uOTggfel4MyxJWIatlt.yXqL2C2zq

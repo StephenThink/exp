@@ -1,0 +1,37 @@
+<section class="department-managers main__panel relative overflow-hidden -mr-5 ">
+    <div class="container relative  ">
+
+        <div class="text-2xl font-bold ">
+            {{ department_managers_title }}
+        </div>
+
+        <div class=" -mr-5 mt-4  w-full " style="width: 100%;">
+            <div class="department-manager-slider flex flex-no-wrap gap-4 " 
+                
+            >
+                {{ department_managers }}
+                    
+                    <div class=" w-64 h-96 bg-light-blue p-4 mr-4 rounded flex flex-col place-content-evenly items-center justify-between text-white ">
+                        
+                        {{ if image }}
+                            <div class="h-48 w-48 relative">
+                                {{ image }}
+                                    <img src="{{ url }}" alt="{{ alt }}">
+                                {{ /image}}
+                            </div>
+                        {{ else}}
+                            <div class="h-48 w-48 bg-white rounded-full"></div>
+                        {{ /if }}
+
+                        <div class="self-start ">
+                            <div class="font-bold">{{ name }}</div>
+                            <div class="mt-1">{{ job_title }}</div>
+                        </div>
+
+                    </div>
+                {{ /department_managers }}
+            </div>
+        </div>
+        
+    </div>
+</section>

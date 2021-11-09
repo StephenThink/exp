@@ -1,0 +1,40 @@
+tree:
+  -
+    title: 'Über Jonesco'
+    children:
+      -
+        entry: 24cda22e-2670-4553-b568-c5885b64fa3e
+      -
+        entry: 7260a319-1cc8-425a-ae48-1fc41be9c02d
+      -
+        entry: 916c1d74-4281-4040-ae15-d6926d359810
+      -
+        entry: 9f0e2519-8389-43be-b402-df616e740799
+  -
+    title: 'Was wir machen'
+    children:
+      -
+        entry: 4de7305e-96df-4448-a596-b4723149f605
+      -
+        entry: 61bc8d0e-b4a9-4720-b5e6-4967b658aa05
+  -
+    title: 'Arbeiten bei uns'
+    children:
+      -
+        entry: 917f75d1-b751-4f3d-a453-c6f0d9b9b03e
+      -
+        entry: f1b1c5ca-46a0-4aed-8a04-e8e3389b13a2
+      -
+        entry: 66e41794-b86f-4f35-a46c-b8e8e53e22ea
+      -
+        entry: 27386ba9-7a52-401d-8d31-fac3dd070577
+  -
+    title: Nachrichten
+    children:
+      -
+        entry: 61a316b4-f868-4dbf-b04b-f3ad0ca7d2ec
+  -
+    title: 'Wenden Sie sich an uns'
+    children:
+      -
+        entry: 8159d6dd-23c6-46e4-97f4-c39ea33a7e0a

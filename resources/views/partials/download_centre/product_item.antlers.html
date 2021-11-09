@@ -1,0 +1,29 @@
+
+    <div>
+        <div 
+            class="p-4 border rounded cursor-pointer overflow-hidden relative "
+            :class="{
+                'border-light-blue' : selectedProductCheck(product.slug)
+            }"
+            @click="toggleSelectedProduct( product.parent_category, sub_category, index, product.slug )"
+
+        >
+        
+            <template x-if="product.images">
+                <img 
+                
+                loading="lazy" class="transition duration-700 transform scale-125 hover:scale-100" 
+                :src="`/assets/${product.images[0]}`" alt="" />
+            </template>
+            <template x-if="fourMonthsOld(product.date_added)">
+                <div 
+                    class="bg-blue absolute top-0 right-0 transform rotate-45 text-xs text-white w-16 text-center translate-x-4 translate-y-2">
+                    {{ new_text }}
+                </div>
+            </template>
+        </div>
+        <div class="text-sm">
+            <div class="font-bold" x-text="product.actual_title"></div>
+            <!--<div class="" x-text="product.title"></div>-->
+        </div>
+    </div>

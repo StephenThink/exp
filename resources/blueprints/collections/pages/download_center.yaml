@@ -1,0 +1,337 @@
+title: 'Download Center'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: salutation
+        field:
+          input_type: text
+          antlers: false
+          display: Salutation
+          type: text
+          icon: text
+          localizable: true
+          width: 25
+          listable: hidden
+      -
+        handle: greeting
+        field:
+          input_type: text
+          antlers: false
+          display: Greeting
+          type: text
+          icon: text
+          width: 75
+          listable: hidden
+          localizable: true
+      -
+        handle: header_background_image
+        field:
+          mode: grid
+          restrict: false
+          allow_uploads: true
+          display: 'Header background image'
+          type: assets
+          icon: assets
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: input_placeholder
+        field:
+          input_type: text
+          antlers: false
+          display: 'Input Placeholder'
+          type: text
+          icon: text
+          instructions: 'Text to be show inside the large input'
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: categories_wording
+        field:
+          input_type: text
+          antlers: false
+          display: 'Categories Wording'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: download_sidebar_wording
+        field:
+          input_type: text
+          antlers: false
+          display: 'Download Sidebar Wording'
+          type: text
+          icon: text
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: select_wording
+        field:
+          input_type: text
+          antlers: false
+          display: 'Select Wording'
+          type: text
+          icon: text
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: no_products_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'No Products Text'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: go_to_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Go to text'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: select_all_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Select all text'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: no_items_in_search
+        field:
+          input_type: text
+          antlers: false
+          display: 'No Items in Search Text'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: add_more_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Add More Text'
+          type: text
+          icon: text
+          localizable: true
+          width: 50
+          listable: hidden
+      -
+        handle: download_all_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Download All Text'
+          type: text
+          icon: text
+          localizable: true
+          width: 50
+          listable: hidden
+      -
+        handle: download_selection_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Download Selection Text'
+          type: text
+          icon: text
+          localizable: true
+          width: 50
+          listable: hidden
+      -
+        handle: nothing_to_download_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Nothing to Download Text'
+          type: text
+          icon: text
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: download_list_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Download List'
+          type: text
+          icon: text
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: new_text
+        field:
+          input_type: text
+          antlers: false
+          display: NEW
+          type: text
+          icon: text
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: cat_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Cat Title'
+          type: text
+          icon: text
+          instructions: 'This will be displayed on the download center page'
+          localizable: true
+          width: 50
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+      -
+        handle: protect
+        field:
+          input_type: text
+          antlers: false
+          display: Protect
+          type: text
+          icon: text
+          listable: hidden
+  cat_section:
+    display: 'Cat Section'
+    fields:
+      -
+        handle: replicator
+        field:
+          collapse: false
+          sets:
+            cats:
+              display: Cats
+              fields:
+                -
+                  handle: thumbnail
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: Thumbnail
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions: 'This will be shown to the Customer'
+                -
+                  handle: assets
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: Assets
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions: 'This will be shown when the customer clicks on the Thumbnail, ie a PDF file.'
+          display: Replicator
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true
+  four_buttons:
+    display: 'Four Buttons'
+    fields:
+      -
+        handle: image_pack
+        field:
+          input_type: text
+          antlers: false
+          display: 'Image Pack'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+      -
+        handle: info_leaflet
+        field:
+          input_type: text
+          antlers: false
+          display: 'Info Leaflet'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+      -
+        handle: technical_data
+        field:
+          input_type: text
+          antlers: false
+          display: 'Technical Data'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+      -
+        handle: assembly_diagrams
+        field:
+          input_type: text
+          antlers: false
+          display: 'Assembly Diagrams'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden

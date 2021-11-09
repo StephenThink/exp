@@ -1,0 +1,31 @@
+title: 'Fire & Safety'
+updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+updated_at: 1631870951
+blueprint: parent_category
+image: products/fire-safety/fire-extinguisher-boxes/front-loading-fire-extinguisher-boxes/70/images-lr/Product_Image_776x776_(518x518_focus_area)-JBKE70_01.jpg
+accent_colour: 'rgba(229, 35, 41, 1)'
+accent_title: 'Other products in this range'
+assets: accents/Fluid_Red.svg
+accent_image: accents/Fluid_Red.svg
+short_title: Fire
+sjj: 2
+localizations:
+  france:
+    title: 'Sécurité & Incendie'
+    short_title: Incendie
+    accent_title: 'Autres produits de cette gamme'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1629980326
+  germany:
+    title: 'Brandschutz und Sicherheit'
+    short_title: Brand
+    accent_title: 'Andere Produkte in dieser Reihe'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1627481650
+  spain:
+    title: 'Incendios & Seguridad'
+    accent_colour: 'rgba(229, 35, 41, 1)'
+    short_title: Incendio
+    accent_title: 'Otros productos de esta gama'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1632324032

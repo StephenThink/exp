@@ -1,0 +1,19 @@
+title: 'Vehicle Fire Boxes'
+updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+updated_at: 1632152090
+blueprint: sub_categories
+image: sub-categories/Category_Thumbnail_500x300-cv-fire-safety.jpg
+sjj: 8
+localizations:
+  germany:
+    title: 'Nutzfahrzeug Brandschutzkästen'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1631190260
+  france:
+    title: 'Coffres Extincteur'
+    updated_by: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+    updated_at: 1631172533
+  spain:
+    title: 'Cajas porta Extintores'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632311500

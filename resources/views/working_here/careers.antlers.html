@@ -1,0 +1,86 @@
+<div class="h-full"  >
+    {{ partial:partials/hero mini="true" }}
+
+    {{ grid_content }}
+    
+    <section class="-mx-5 wave-box main__panel_small md:main__panel md:mt-12">
+
+            <div class="relative md:mt-16">
+               
+                    {{ svg src="/assets/site/wave-white.svg" class="absolute bottom-0 hidden transform stroke-current text-light-grey -top-32 rotate-y-180 md:block z-0"  }}
+                    {{ svg src="/assets/site/wave-white.svg" class="z-1 absolute bottom-0 hidden transform stroke-current text-white md:top-56 rotate-y-180 md:block"  }}
+
+            </div>        
+                <div class="container row flex w-full relative z-2 {{ last == 1  ?= 'md:flex-row-reverse'  }} justify-between flex-col md:flex-row">
+                    <div class="py-4 mx-4 md:w-2/3 md:mx-0 {{ last == 1  ? 'md:pl-10' : 'md:pr-10'  }}">
+                        <h2 class="text-4xl md:text-2xl lg:text-4xl font-bold"
+                        data-aos='fade-right'
+                        data-duration="900"
+                        data-aos-delay="300"
+                        data-easing="ease-in-out"
+                        >{{ wave_title ?? introduction_title ?? title }}</h2>
+                        <div class="mt-4 text-lg md:text-md lg:text-xl xl:text-2xl"
+                        data-aos='fade-right'
+                        data-duration="900"
+                        data-aos-delay="500"
+                        data-easing="ease-in-out"
+                        >
+                            {{ introduction ?? excerpt }}
+                        </div>
+                        {{ link_text }}
+                            <div class="flex mt-4"
+                            data-aos='fade-right'
+                            data-duration="900"
+                            data-aos-delay="700"
+                            data-easing="ease-in-out">
+                                {{ partial:partials/readmore :text="link_text" text_color="text-light-blue" display="inline-block" classes=" text-xl place-self-start" icon_bg="bg-light-blue" }}
+                            </div>
+                            {{ /link_text }}
+                    </div>
+                    
+                    <div class="w-full md:w-96 md:h-96 pt-2 md:pt-0">
+                        
+                            {{ wave_thumbnail }}
+                                <img class="object-cover w-full h-full md:w-96 md:h-96" src="{{ url }} " alt="{{ alt }}">
+                            {{ /wave_thumbnail }}
+                        
+                    </div>
+                </div>
+        
+            
+        
+        </section>
+       
+    {{ /grid_content }}
+
+ {{# Working Here Card #}}
+    <section class="main__panel_small md:main__panel working-here md:mt-12">
+        <div class="container flex flex-col md:flex-row justify-between">
+           <div class="text-3xl md:text-4xl font-bold xl:w-1/2 justify-start z-4" >{{ working_here_heading }}</div>
+           <div class="mt-4 md:mt-0 flex flex-col md:flex-row justify-end">
+                {{ working_here }}
+                    {{ partial:flipping_card fixed-col="w-full md:flex-none md:w-48 h-56 md:h-96"  what-am-i-flipping="working-here" gap-size="my-1 md:m-2" }}
+                {{ /working_here }}
+            </div>
+        </div>
+    </section>
+
+ {{# Your Benefits Card #}}
+    <section class="main__panel_small md:main__panel your-benefits mb-24">
+        <div class="container grid grid-cols-1 gap-4">
+            <div class="text-3xl font-bold xl:w-1/2 z-4">{{ your_benefit_heading }}</div>
+            <div class="mt-4 md:mt-0 flex flex-col md:flex-row  justify-end">
+                {{ your_benefits }}
+                   {{ partial:flipping_card fixed-col="w-full md:flex-none md:w-48 h-56 md:h-96" what-am-i-flipping="your-benefits" gap-size="my-1 md:m-2" front-label="place-content-between"}}
+                {{ /your_benefits }}
+            </div>
+        </div>
+    </section>
+
+{{ partial:partials/wavebox move-down="true" no-gap="true" show_readmore="true"}}
+
+<div class="mt-36"></div>
+
+{{ partial:partials/_read_more_items }}
+
+</div>

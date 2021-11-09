@@ -1,0 +1,85 @@
+
+{{ partial:partials/page_header title="{{ category_title }}" introduction=" {{ category_description }}" }}
+
+
+
+{{# <div 
+    x-data="subcategorySelector()" 
+    x-init="() => {
+        console.log( this )
+    }"
+> #}}
+{{# <p>
+    <span>to JSON</span>
+{{ slugs_array | to_json | dump }}
+</p>
+<p>
+    <span>not to json</span>
+{{ slugs_array | dump }}
+</p> #}}
+
+{{# {{ slugs_array | to_json }} #}}
+
+<!-- Breadcrumbs -->
+{{ partial:partials/breadcrumbs }}
+
+{{ if category_title == "mudguards" }}
+            <div class="ml-18  container cursor-pointer py-1 flex items-center">
+                <a href="/mudguard-search"> 
+                    <img src="/assets/products/commercial-vehicle/mudguards/mudguard-search-bar.png" alt="" srcset="" class="w-full h-16 md:h-32">
+                </a>
+            </div>
+{{ /if }}
+
+    <div x-data="subcategorySelector()" x-init="init( {{ slugs_array | to_json | sanitize  }}, {{ slug_name_overrides | to_json | sanitize  }} )" >
+            
+    
+        <div class="container md:main__panel mb-4 pt-0 flex ">
+        
+        <div class="selector-buttons grid  lg:flex w-full">
+            <template x-for="(item, index) in items" :key="item">
+                <span 
+                    :class=" { 
+                        'first' : index === 0, 
+                        'last': index === items.length - 1,
+                        'first-and-last ': items.length === 1,
+                        'inactive' : ! item.active
+                    }" 
+                    class="selector-button text-md bg-accent text-white m-0 py-1 px-2 cursor-pointer lg:border-l lg:border-r border-t border-b lg:border-t-0 lg:border-b-0 hover:shadow-inner text-center" 
+                    :data-panel-target="item.slug" 
+                    :data-index="index"
+                    x-text="overrideCheck(item.name)"
+                    
+                    @click="toggle"
+                ></span>
+                
+            </template>
+            {{ if slugs_array | count >= 2 }}
+            <span class="text-md bg-gray-400 text-white m-0 py-1 px-2 cursor-pointer lg:border-l lg:border-r  hover:shadow-inner text-center all-button" @click="test()">{{trans:jonesco.site.show_all :site="site.locale" }}</span>
+            {{ /if }}
+        </div>
+        
+        
+    </div>
+
+    
+
+    <div class="container main__panel pt-0 ">
+        
+        {{ taxonomy :from="from" :slug:in="slugs" sort="sort_order:asc" }}
+            <div class="mb-20" data-section="{{ slug }}" data-order="{{ sort_order }}">
+                <h2 class="font-bold text-2xl mb-4">{{ title }}</h2>
+                <div class="grid md:grid-cols-3 xl:grid-cols-5 gap-5">
+                    
+                    {{ collection:products  :taxonomy:sortable_category="slug" }}
+                    
+                        {{ partial:partials/product_category_inner }}
+                    
+                    {{ /collection:products }}
+                </div>
+            </div> 
+        {{ /taxonomy }}
+      
+    </div>
+    
+</div>

@@ -1,0 +1,14 @@
+<div class="relative h-10 rounded border-2 border-light-blue bg-transparent flex justify-center items-center">
+        <div class="absolute">
+            <div class="flex flex-row items-center"> <span class="material-icons-sharp text-light-blue mr-4">
+                    upload_file
+                    </span> <span class="block text-gray-400 font-normal">{{ trans:jonesco.form.upload }}</span> </div>
+        </div> 
+    
+
+{{ if max_files === 1 }}
+    <input type="file" class="h-full w-full opacity-0" name="{{ handle }}" >
+{{ else }}
+    <input type="file" class="h-full w-full opacity-0" name="{{ handle }}[]" multiple>
+{{ /if }}
+</div>

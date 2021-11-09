@@ -1,0 +1,178 @@
+
+
+<div 
+    class="my-7 {{fixed_width}} relative flex flex-col {{ gap-size ?? 'm-4' }} tracking-tight text-white jonesco-flip-manual md:jonesco-flip-{{ what-am-i-flipping == "vacancy" ? "manual" : "box" }} card {{ fixed-col ?? '' }}" 
+>
+    <div class="h-full {{fixed_width}}">
+        <div class="absolute h-full p-4 item front bg-light-blue">
+            <!-- Card Front -->
+            <div class="inner {{ front-label ?? 'justify-center' }} place-items-center">
+                {{# partial:partials/flip_icon #}}
+                {{ if what-am-i-flipping=="working-here"}}
+                
+                    {{ if icon }}
+                        <div class="w-24 lg:w-36">
+                            {{ icon }}
+                                <img src="{{ url }}" class="w-full h-full object-contain">
+                            {{ /icon}}
+                        </div>
+                        <div class="pt-6 text-base text-center font-semibold">{{ working_here_title }}</div>
+                    {{ else }}
+                        <div class="text-lg font-bold text-center">{{ working_here_title }}</div>
+                    {{ /if}}
+                    
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="your-benefits"}}
+                    {{ if icon }}
+                    <div class="w-24 lg:w-36 my-auto">
+                            {{ icon }}
+                                <img src="{{ url }}" class="w-full h-full object-contain">
+                            {{ /icon}}
+                        </div>
+                        <div class="text-base text-center pb-6 md:h-16 font-semibold">{{ your_benefits_title }}</div>
+                    {{ else }}
+                        <div class="text-lg font-bold text-center">{{ your_benefits_title }}</div>
+                    {{ /if}}
+                {{ /if }}
+
+
+                {{ if what-am-i-flipping=="enviroment"}}
+                    {{ if icon }}
+                        <div>
+                            {{ icon }}
+                            <img src="{{ url }}" class="w-24 h-24 object-contain">
+                               
+                            {{ /icon}}
+                        </div>
+                        <div class="pt-6 text-xl font-semibold text-center">{{ title }}</div>
+                    {{ else }}
+                        <div class="text-lg font-bold text-center">{{ title }}</div>
+                    {{ /if}}
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="vacancy" }}
+                    <div class="text-lg font-bold text-center">{{ title }}</div>
+                    <div class="pt-4 font-semibold text-xxs">{{ job_id_label }}: {{ job_id }}</div>
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="smarter-choice"}}
+                <div class="flex flex-col text-white rounded  bg-light-blue place-content-evenly">
+                    <div>
+                        {{ icon }}
+                        <img src="{{ url }}" alt="{{ alt }}" class="object-contains">
+                        {{ /icon}}
+                        <div class="font-semibold pt-6 text-center">{{ title }}</div>
+                    </div>
+                </div>
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="made-by-jonesco"}}
+                <div class="w-24  lg:w-36">
+                        {{ image }}
+                            <img src="{{ url }}" alt="{{ alt }}" class="object-contain">
+                        {{ /image}}
+                    </div>
+                        
+                    <div class="font-semibold text-center pt-6">{{ title }}</div>
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="leadership"}}
+                
+                    {{ if image }}
+                        <div class="h-48 w-48">
+                            {{ image }}
+                                <img src="{{ url }}" alt="{{ alt }}" class="h-full w-full rounded-full">
+                            {{ /image}}
+                        </div>
+                    {{ else}}
+                        <div class="h-48 w-48 bg-white rounded-full"></div>
+                    {{ /if }}
+                    <div class="self-start w-full">
+                        <div class="font-bold">{{ name }}</div>
+                        <div class="mt-1 h-14">{{ job_title }}</div>
+                    </div>
+                {{ /if }}
+
+
+            </div>
+        </div>
+        <div class="relative h-full p-4 item back bg-light-blue" {{ if what-am-i-flipping=="enviroment"}}style="height:340px;"{{/if}}>
+                <!-- Card Back -->
+            <div class="inner {{ back-label }}">
+
+                {{ if what-am-i-flipping=="working-here"}}
+                <div class="pt-2 self-start font-semibold">{{ working_here_title }}</div>
+                <div class="pt-6 ">{{ working_here_description }}</div>
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="your-benefits"}}
+                <div class="self-start font-semibold">{{ your_benefits_title }}</div>
+                <div class="pt-6 ">{{ your_benefits_description }}</div>
+                {{ /if }}
+
+
+                {{ if what-am-i-flipping=="enviroment"}}
+                    <div class="self-start pt-2 text-lg font-semibold">{{ title }}</div>
+                    <div class="pt-2 space-y-2 text-md bulleted break-words">{{ short_text }}</div>
+                    <div class="flex flex-col read-more-modal pr-8 pb-2 absolute bottom-5 right-0" >
+                                               
+                            <a class="flex gap-2 pt-2 font-bold place-self-end read-more-modal " 
+                            @click="openModal(`{{ title }}`, `{{ text }}`)">
+                                    Read More
+                                    <span class="material-icons-sharp read-more-modal">
+                                    play_circle
+                                    </span>
+                            </a>
+                        
+                    </div>           
+                {{ /if }}
+
+
+                {{ if what-am-i-flipping=="vacancy" }}
+                
+                    <div class="flex flex-col justify-between w-full text-sm font-semibold">
+                        <div class="font-semibold">{{ title }}</div>
+                        <div class="pt-1 font-semibold">{{ job_id_label }}: {{ job_id }}</div>
+                    </div>
+                    <div class="pt-4 leading-tight  h-full overflow-ellipsis overflow-hidden">{{ brief_job_description }}
+                    </div>
+                    <div class="flex flex-col read-more-modal pr-8 pb-2" >
+                        {{ if brief_job_description }}
+                            <a class="flex gap-2 pt-2 font-bold place-self-end read-more-modal" @click="openModal(`{{ job_id }}`, `{{ job_id_label}}`, `{{ job_markdown }}`, `{{ title }}`)">
+                                    Read More
+                                    <span class="material-icons-sharp read-more-modal">
+                                    play_circle
+                                    </span>
+                            </a>
+                        {{ /if }}
+                        <a class="flex gap-2 pt-2 font-bold place-self-end" data-jobid="{{ job_id }}" @click="jobIdFill($event)">
+                                Apply
+                                <span class="material-icons-sharp" data-jobid="{{ job_id }}" @click="jobIdFill($event)">
+                                play_circle
+                                </span>
+                        </a>
+                    </div>                 
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="smarter-choice"}}
+                <div class="pt-4 font-semibold">{{ title }}</div>
+                <div class="pt-6">{{ text }}</div>
+
+                {{ /if}}
+
+
+                {{ if what-am-i-flipping=="made-by-jonesco"}}
+                <div class="self-start pt-2 text-lg font-semibold">{{ title }}</div>
+                <div class="pt-2 space-y-2 text-md">{{ text }}</div>
+                {{ /if }}
+
+                {{ if what-am-i-flipping=="leadership"}}
+                <div class="self-start font-semibold">{{ name }}</div>
+                <div class="pt-2 text-xs whitespace-pre-wrap">{{ about }}</div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+</div>
+

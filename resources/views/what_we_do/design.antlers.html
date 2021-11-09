@@ -1,0 +1,76 @@
+{{ partial:partials/hero mini="true" }}
+
+
+
+
+<section class="md:mt-36">
+
+
+{{ grid_content }}
+    
+            {{ partial:partials/wavebox flip="true" no-gap="true" design="true" }}
+         
+       
+       
+    {{ /grid_content }}
+</section>
+
+{{#<div class="container main__panel pb-0 flex flex-col md:flex-row md:flex-wrap justify-center gap-2 md:gap-4 z-4">
+     
+        {{ gallery_images }}
+        
+            <div class=" w-80 h-80  xl:w-72 xl:h-72 2xl:w-80 2xl:h-80  overflow-hidden  place-self-center z-4">
+                {{ gallery_image }}
+                
+                    <img class=" h-full w-full m-2 object-none z-4 overflow-hidden transform hover:scale-125 transition duration-700" src="{{ url }}" alt="{{ gallery_alternative_text }}">
+                
+                {{ /gallery_image }}
+            </div>
+        {{ /gallery_images }}
+</div>#}}
+
+<div class="container main__panel grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-5 gap-2">
+
+        {{ gallery_images }}
+        
+            <div class="z-4 h-full w-full gallery-zoom md:m-4">
+                {{ gallery_image }}
+                
+                    <img class=" h-full w-full z-4 " src="{{ url }}" alt="{{ gallery_alternative_text }}">
+                
+                {{ /gallery_image }}
+            </div>
+        {{ /gallery_images }}
+</div>
+
+
+
+
+    {{#
+<div class="container main__panel small text-2xl">
+
+   
+    <h3 class="font-bold text-3xl pt-4">{{ below_content_title }}</h3>
+    <div class="mt-8">
+        {{ below_content_introduction }}
+    </div>
+
+    <div class="quote flex flex-col mt-6">
+        <div class="flex items-center pt-10">
+            <div class="text-9xl text-light-blue leading-none  mr-4 mb-auto md:mt-auto ">
+                <img src="/assets/site/quotes.png" >
+            </div>
+            <div class="italic">
+                {{ quote}}
+            </div>
+        </div>
+        {{ if quoted_by }}
+            <div class="quote_by ml-auto mt-6 font-semibold ">{{ quoted_by }}</div>
+        {{ /if }}
+    </div>
+
+</div>
+#}}
+<div class="md:mt-24">
+    {{ partial:partials/read_more_items }}
+</div>

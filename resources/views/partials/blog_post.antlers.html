@@ -1,0 +1,18 @@
+<div class=" w-full mb-8 transition-all duration-500  transform hover:-translate-y-3 hover:text-blue">
+                            
+    <div class="relative pb-9/12 md:pb-2/4 mb-3">
+        {{ news_image }}
+            <img class="absolute h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+        {{ /news_image }}
+    </div>
+
+    <a href="{{ url }}" class="inline-block ">
+        <div class=" transition-all duration-500  ">
+            <p class="font-bold  text-lg xl:text-4xl">{{ title }}</p>
+            <div class="mt-8">
+                
+            </div>
+        </div>
+    </a>
+    
+</div>

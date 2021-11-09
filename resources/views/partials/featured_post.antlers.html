@@ -1,0 +1,23 @@
+<div class=" featured-post featured-post- col-span-1 mb-4 md:order-first md:col-span-2 md:row-span-3 ">
+    <div class="transition-all duration-500 hover:text-white transform hover:-translate-y-3 hover:text-blue">
+        <div class="relative  pb-9/12  mb-3">
+            {{ news_image }}
+                <img class="absolute h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+            {{ /news_image }}
+        </div>
+
+        <a href="{{ url }}" class="inline-block ">
+            <div class="  ">
+                {{ if featured_post }}
+                    <div class="font-bold text-light-blue my-4 text-2xl">Featured post</div>
+                {{ /if }}
+                
+                <p class="font-bold  text-lg xl:text-4xl">{{ title }}</p>
+                
+                <div class="mt-8">
+                    {{ content_intro | safe_truncate:120:... }}
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+title: Storage
+updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+updated_at: 1635953919
+blueprint: parent_category
+image: products/storage/static-storage/slim-storage-box/images-lr/Product_Image_776x776_(518x518_focus_area)-JBS130-COGR_01.jpeg
+accent_colour: 'rgba(4, 166, 75, 1)'
+accent_title: 'Other storage products'
+assets: accents/Fluid_Green.svg
+accent_image: accents/Fluid_Green1.svg
+short_title: Storage
+sjj: 4
+localizations:
+  france:
+    title: Stockage
+    short_title: Stockage
+    accent_title: 'Autres produits de cette gamme'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1627385640
+  germany:
+    title: Lagerung
+    short_title: Lagerung
+    accent_title: 'Andere Produkte in dieser Reihe'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1627481678
+  spain:
+    title: Almacenamiento
+    short_title: Almacenamiento
+    accent_title: 'Otros productos de esta gama'
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1627481689

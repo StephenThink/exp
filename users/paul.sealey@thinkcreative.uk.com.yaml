@@ -1,0 +1,14 @@
+name: 'Paul S'
+super: true
+taxonomy_terms:
+  - commercial-vehicle
+  - environmental
+  - fire-and-safety
+  - storage
+parent_categories:
+  - commercial-vehicle
+  - environmental
+  - fire-and-safety
+  - storage
+id: 79104b3f-53b6-4d6f-8e5d-7033b6ee327f
+password_hash: $2y$10$7xlddsAbfgSEAfkkONeD6uKgWQNWWAgs5QBYmPPu4q3HRMUWWHMf2

@@ -1,0 +1,17 @@
+title: 'Detachable Lid Fire Boxes'
+updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+updated_at: 1631640263
+blueprint: sortable_category
+localizations:
+  germany:
+    title: 'Abnehmbarer Feuer Deckel'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1631190468
+  france:
+    title: 'Couvercle Amovible'
+    updated_by: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+    updated_at: 1631173757
+  spain:
+    title: 'Tapa Desmontable'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1631188039

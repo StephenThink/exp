@@ -1,0 +1,13 @@
+<template x-if="true">
+    <button
+        @click="selectItem(product, '{{what}}')"
+        class="download_list_selector disabled:text-white disabled:opacity-50 disabled:cursor-not-allowed rounded border cursor-pointer text-xs md:text-sm px-2 py-1 flex w-full text-center  items-center justify-center "
+        :disabled="! product['{{what}}']"
+        :class="{
+            'text-black': product['{{what}}'] && product['{{what}}'].length > 0,
+            'bg-light-blue text-white': product.download_centre.includes('{{what}}'),
+            'bg-light-grey' : ! product.download_centre.includes('{{what}}')
+        }">
+        {{ text }}
+    </button>
+</template>

@@ -1,0 +1,42 @@
+name: 'Think Creative'
+super: true
+parent_categories:
+  - environmental
+  - fire-and-safety
+  - storage
+  - commercial-vehicle
+id: 2a7e28fb-90fb-43d7-b613-b249753ce53e
+password_hash: $2y$10$K9SdGiKOKW1O5EX2zwI4WeP8O1YPttJgPaj/AA8IIhOQPqXl2uwwi
+preferences:
+  collections:
+    pages:
+      after_save: continue_editing
+    about:
+      after_save: continue_editing
+    news:
+      columns:
+        - title
+        - date
+        - featured_post
+        - author
+    products:
+      columns:
+        - title
+        - slug
+        - sortable_category
+        - sub_categories
+        - parent_category
+      after_save: continue_editing
+    what_we_do:
+      after_save: continue_editing
+  taxonomies:
+    sub_categories:
+      columns:
+        - title
+        - slug
+        - sjj
+    sortable_category:
+      columns:
+        - title
+        - slug
+        - sort_order

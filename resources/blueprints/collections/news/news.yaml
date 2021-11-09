@@ -1,0 +1,64 @@
+title: 'News Article'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+          localizable: true
+      -
+        handle: news_image
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: 'News Image'
+          type: assets
+          icon: assets
+          listable: hidden
+          localizable: true
+      -
+        import: main_content
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+      -
+        handle: featured_post
+        field:
+          display: 'Featured Post'
+          type: toggle
+          icon: toggle
+          listable: hidden
+      -
+        handle: author
+        field:
+          max_items: 1
+          mode: select
+          display: Author
+          type: users
+          icon: users
+          instructions: 'If this filed is left empty, the page will say ''written by Jonesco'''
+          listable: hidden

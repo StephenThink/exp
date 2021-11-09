@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token }}">
+        <title>{{ title ?? site:name }}</title>
+
+        <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
+    
+        <style>
+            :root {
+                --accent-color: {{ parent_category.0.accent_colour ?? accent_colour ?? '#2699D6' }}
+            }
+        </style>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHS6B9Z62W"></script>
+
+    </head>
+    <body class="overflow-y-scroll font-sans leading-normal bg-white text-grey-800 {{ if environment == "local" }}debug-screens{{ /if }}" x-data="page()" x-init="init" @resize.window="resize()">
+
+            
+        {{ partial:partials/main_nav }}
+
+    
+
+        <div class="min-h-screen-heading main_content main__panel">
+            {{ partial:partials/cookie/box }}
+            {{ template_content }}
+        </div>
+        <div class="md:-mt-24">
+        {{ partial:partials/work_smarter }}
+        </div>
+        {{ partial:partials/footer }}
+
+        
+        
+    </div>
+        <script src="{{ mix src='/js/site.js' }}"></script>
+
+        {{ yield:scripts }}
+
+
+    </body>
+</html>

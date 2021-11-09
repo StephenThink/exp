@@ -1,0 +1,60 @@
+{{# <div class="h-full"> #}}
+    <div class="h-full grid grid-cols-1 md:grid-cols-2 md:-mx-5 my-4 md:my-0">
+        <div class="h-full w-full hidden md:block">    
+            {{ page_image }}
+                <img class="h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+            {{ /page_image }}
+        </div>
+        <div class="h-10/12 md:h-full flex flex-col items-center justify-between">
+            <div class="w-full h-1/2 md:h-full flex items-center justify-center">
+                <div class="w-full md:w-1/2 relative ">
+                    
+                    {{ user:login_form class="text-grey-600 mt-24" role="form" aria-label="Login form" redirect="{{ homepage == "/" ? "/download-centre" : "{homepage}/download-centre"}}" }}
+                        {{ if errors }}
+                            <div class="bg-red-800 text-white p-2 mb-4 rounded">
+                                {{ errors }}
+                                    {{ value }}<br>
+                                {{ /errors }}
+                            </div>
+                        {{ /if }}
+                        
+                        <h1 class="font-bold text-2xl mb-4">{{ title }}</h1>
+
+                        <fieldset class="flex flex-col ">
+                            <label>{{ trans:jonesco.site.email }}</label>
+                            <input class="border-2 border-light-blue rounded bg-transparent placeholder-black w-full text-sm text-black outline-none px-2 py-2 font-bold" type="email" name="email" value="{{ old:email }}" />
+                            {{# <span class="text-bf-red">{{ errors:email}}</span> #}}
+                        </fieldset>
+
+                        <fieldset class="flex flex-col">
+                            <label>{{ trans:jonesco.site.password }}</label>
+                            <input class="border-2 border-light-blue rounded bg-transparent placeholder-black w-full text-sm text-black outline-none px-2 py-2 font-bold" type="password" name="password" value="{{ old:password }}" />
+                        </fieldset>
+
+                        
+                        
+
+                        <label for="remember-me" class="mt-4 flex items-center cursor-pointer">
+                            <input type="checkbox" name="remember" id="remember-me">
+                            <span class="ml-1">{{ trans:jonesco.site.remember_me }} </span>
+                        </label>
+
+                        <div class=" mt-4">
+                            <button type="button" class="text-dark hover:text-blue underline">{{ trans:jonesco.site.forgot_password }}</button>
+                        </div>
+
+                        <div class=" mt-4">
+                            <button type="submit" class=" py-2 px-3 mr-3 ring-2 ring-transparent rounded transition duration-500 text-white bg-light-blue hover:bg-blue focus:ring-grey" alt="Log in to the Jonesco site">{{ trans:jonesco.site.log_in }}</button>
+                        </div>
+
+                    {{ /user:login_form }}
+
+                    <div class=" mt-4">
+                            <a href="mailto:marketing@jonesco-plastics.com?subject=Request Account" class="absolute bottom-4 right-0 py-2 px-3 mr-3 ring-2 ring-transparent rounded transition duration-500 text-white bg-blue hover:bg-light-blue focus:ring-grey" alt="Request Account">{{ trans:jonesco.site.sign_up }}</a>
+                        </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{{# </div> #}}

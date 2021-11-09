@@ -1,0 +1,17 @@
+<div class="h-screen-heading grid grid-cols-2 -mx-5 ">
+    <div class="h-full bg-green-500 pb-full relative">  
+        {{ if hero_image }}
+            {{ hero_image }}
+                <img class="absolute h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+            {{ /hero_image }}
+        {{ /if }}
+    </div>
+    <div class="h-full flex flex-col items-center justify-between">
+        <div class="w-full h-full flex items-center justify-center">
+            <div class="w-1/2 ">
+                <h1 class="font-bold text-6xl mb-4" data-aos="fade-up" data-aos-duration="1000">{{ hero_title ?? title }}</h1>
+            </div>
+        </div>
+        
+    </div>
+</div>

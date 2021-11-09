@@ -1,0 +1,47 @@
+<div class="hero h-screen-heading {{ mini ? 'md:h-50-screen' : 'md:h-screen' }} flex  w-100  relative overflow-hidden -mx-5 {{classes}} " data-scroll-section>
+    {{ if hero_image }}
+
+        {{ hero_image }}
+            <img src="{{ url }}" alt="{{ alt }}" class="h-full w-full object-cover absolute {{ image_classes }}" loading=eager>
+            <h1 class="text-white md:hidden z-10 mb-5 text-4xl md:text-6xl font-bold aos-init aos-animate items-center flex pl-2" data-aos="fade-up"  data-aos-duration="1000">{{ hero_title ?? title }}</h1>
+        {{ /hero_image }}
+        
+    {{ /if }}
+
+    <div class="hidden md:block container z-10 text-white text-3xl px-5 {{ inner_page ?= 'left-0 right-0 absolute top-48' }} mt-10 ">
+        <div class="w-full md:w-1/2">
+            {{ if inner_page }}
+                {{ if !no_subtitle }}
+                    <p class="text-xl leading-snug" data-aos="fade-down" data-aos-delay="300" data-aos-duration="1000">{{ inner_page | ucfirst }}</p>
+                {{ /if }}
+
+                <h1 class="mb-5 text-4xl md:text-6xl font-bold" data-aos="fade-up"  data-aos-duration="1000">{{ hero_title ?? title }}</h1>
+
+            {{ else }}
+
+                <h1 class="mb-6 text-4xl md:text-6xl font-bold" data-aos="fade-down" data-aos-duration="1000">{{ hero_title ?? title }}</h1>
+
+                {{ if !no_subtitle }}
+                    <p class="text-xl leading-snug" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">{{ hero_subtitle | nl2br ?? title }}</p>
+                {{ /if}}
+            {{ /if }}
+        </div>
+    </div>
+
+</div>
+
+<div class="md:hidden container text-{{ mobile_sub ?? 'black' }} text-{{ mobile_text_size ?? 'lg' }} {{ inner_page ?= 'left-0 right-0 absolute top-48' }} mt-10 ">
+        <div class="w-full md:w-1/2">
+            {{ if inner_page }}
+                {{ if !no_subtitle }}
+                    <p class="leading-snug" data-aos="fade-down" data-aos-delay="300" data-aos-duration="1000">{{ inner_page | ucfirst }}</p>
+                {{ /if }}
+
+            {{ else }}
+
+                {{ if !no_subtitle }}
+                    <p class="leading-snug" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">{{ hero_subtitle | nl2br ?? title }}</p>
+                {{ /if}}
+            {{ /if }}
+        </div>
+    </div>

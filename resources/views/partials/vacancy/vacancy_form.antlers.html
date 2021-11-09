@@ -1,0 +1,57 @@
+<div class="container vacancy-form" x-ref="vacancy_form">
+    <div class="w-full md:w-3/4">
+        <div class="py-4">
+            <div class="p-2 text-xl font-bold">{{ trans:jonesco.form.application }}
+                <span class="text-2xl font-bold text-red-400">*</span>
+                <span class="text-sm font-thin">{{ trans:jonesco.form.required }}</span>
+            </div>
+
+            {{ form:vacancy_application class="flex flex-col" }}
+            {{ captcha:head }}
+
+                {{ if success }}
+                    <div class="p-2 text-white bg-green-500 rounded md:w-3/4">
+                        {{ trans:jonesco.form.success }}
+                    </div>
+                    {{ else }}
+                        {{ if errors }}
+                            <div class="p-2 text-white bg-red-500 rounded md:w-3/4">
+                                {{ trans:jonesco.form.fail }}
+                            </div>         
+                        {{ /if }}
+
+                        <div class="grid grid-cols-1">
+                {{ fields }}
+                    <div class="flex flex-col justify-between w-full p-2 md:flex-row md:justify-start md:gap-3 md:w-3/4">
+                        <label class="flex flex-shrink-0 gap-1 md:w-1/4 place-items-center">{{ trans key="jonesco.vacancy.{handle}" }} {{ if validate }} <span class="text-2xl font-bold text-red-400">*</span>{{ /if }}</label>
+                        <div class="md:w-1/2">
+                            <div class="p-1 ">{{ field }} </div>
+                            {{ if error }}
+                                <p class="text-sm text-center text-red-500">{{ error }}</p>
+                            {{ /if }}
+                        </div>
+                    </div>
+                {{ /fields }}
+            </div>
+                <div class="my-2">
+                    {{ captcha }}
+                </div>
+                {{ if error:captcha }}
+                    <p class="text-sm text-center text-red-500">{{ error:captcha }}</p>
+                {{ /if }}
+                    <button type="submit" class="flex gap-3 p-2 text-xl font-bold text-light-blue place-items-center">
+                            {{ trans:jonesco.form.apply }}
+                        <span class="material-icons-sharp">
+                        play_circle
+                        </span>
+                    </button>
+                    
+                   
+
+                {{ /if }}
+
+            {{ /form:vacancy_application }}
+        </div>
+    </div>
+</div>
+

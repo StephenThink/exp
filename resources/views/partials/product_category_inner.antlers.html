@@ -1,0 +1,54 @@
+
+{{#<div class="border border-grey rounded-xl 
+p-4 flex flex-col hover:border-accent transition duration-300 hover:shadow-2xl  transform hover:-translate-y-2 relative" >
+<a href="/products/{{ prefix_url }}/{{ slug }}">
+    <p class="font-semibold mb-3">{{ actual_title ?? title }}</p>
+    {{ if image }}
+            <div class="relative my-auto pb-2/3 ">
+                {{ image }}
+                    <img class="absolute h-full w-full object-cover p-4" src="{{ url }} " alt="{{ alt }}">
+                {{ /image }}
+            </div>
+        {{ /if }}    
+    {{ if images.0 }}
+            <div class="relative my-auto pb-2/3 ">
+                {{ images.0 }}
+                    <img class="absolute h-full w-full object-cover p-4" src="{{ url }} " alt="{{ alt }}">
+                {{ /images.0 }}
+            </div>
+        {{ /if }}
+    <div class="mt-auto">
+        {{ partial:partials/readmore url="/products/{{ prefix_url }}/{{ slug }}" icon_bg="bg-grey" no_read_more="true" }}
+    </div>
+</a>
+</div>#}}
+
+<div class="grid  border border-grey rounded-xl p-4 hover:border-accent transition duration-300 hover:shadow-2xl  transform hover:-translate-y-2">
+        <a href="{{ if homepage != "/"}}{{ homepage}}{{ /if }}/products/{{ prefix_url }}/{{ slug }}">
+    <div class="h-10 font-semibold">
+        {{ if environment != "production" }}<p class="">{{ sjj}}</p> {{ /if }}
+        {{ actual_title ?? title }}
+    </div>
+    <div class="mt-3 rounded" style="height:207px;">
+        {{ if image }}
+            <div class="w-full h-full">
+                {{ image }}
+                    <img class="h-full w-full object-cover rounded" src="{{ url }} " alt="{{ alt }}">
+                {{ /image }}
+            </div>
+        {{ else }}    
+            {{ if images.0 }}
+                <div class="w-full h-full overflow-hidden">
+                    {{ images.0 }}
+                        <img class="h-full w-full object-cover p-4 rounded transform scale-125" src="{{ url }} " alt="{{ alt }}">
+                    {{ /images.0 }}
+                </div>
+            {{ /if }}
+        {{ /if }}
+    </div>
+    <div class="mt-3">
+        {{ partial:partials/readmore url="/products/{{ prefix_url }}/{{ slug }}" icon_bg="bg-grey" no_read_more="true" }}
+    </div>
+
+        </a>
+</div>

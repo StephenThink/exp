@@ -1,0 +1,22 @@
+title: 'Nestable Storage Boxes'
+updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+updated_at: 1632830726
+blueprint: sortable_category
+sort_order: 2
+localizations:
+  usa:
+    title: 'Stackable Storage Boxes'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632829891
+  france:
+    title: Emboitable
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632829933
+  germany:
+    title: 'Verschachtelbar Lagerbehälter'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632830494
+  spain:
+    title: Encajable
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632830054

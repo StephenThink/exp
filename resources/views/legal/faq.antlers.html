@@ -1,0 +1,55 @@
+
+<section class="-mx-5 main__panel_small bg-light-grey">
+        <div class="mx-5 container">
+                <div class="font-bold text-3xl">
+                        {{ title }}
+                </div>
+                    
+                <div class="text-xl mt-4">
+                        {{ content }}
+                </div>
+        
+        
+        </div>
+        
+        </section>
+        
+        <section class="-mx-5 main__panel_small bg-light-grey">
+            <div class="container w-11/12 md:w-full">
+                <div class="space-y-2 w-full md:w-1/2 md:mx-auto">
+                    {{ replicator }}
+                    
+                    <div class="">
+                        <div class="tab w-full">
+
+                            <div class="flex flex-col overflow-hidden rounded-xl shadow bg-blue">
+                                <input class="text-lg md:text-2xl text-white bg-blue p-4 absolute opacity-0" id="tab-single-{{ index }}" type="radio" name="tabs2">
+                                <label class="block p-5 leading-normal cursor-pointer text-white text-lg md:text-2xl" for="tab-single-{{ index }}">{{ heading }}</label>
+                                
+                                <div class="text-xl bulleted tab-content overflow-hidden bg-gray-100 leading-normal">
+                                    <div class="p-4">{{ body }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ /replicator }}
+                </div>
+            </div>
+        </section>
+
+        <script>
+            /* Optional Javascript to close the radio button version by clicking it again */
+            var myRadios = document.getElementsByName('tabs2');
+            var setCheck;
+            var x = 0;
+            for(x = 0; x < myRadios.length; x++){
+                myRadios[x].onclick = function(){
+                    if(setCheck != this){
+                         setCheck = this;
+                    }else{
+                        this.checked = false;
+                        setCheck = null;
+                }
+                };
+            }
+         </script>

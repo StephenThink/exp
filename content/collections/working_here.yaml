@@ -1,0 +1,15 @@
+title: 'Working Here'
+sites:
+  - english
+  - usa
+  - france
+  - germany
+  - spain
+template: default
+layout: layout
+revisions: false
+route: '/working-here/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private

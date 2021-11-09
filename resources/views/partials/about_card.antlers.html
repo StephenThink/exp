@@ -1,0 +1,14 @@
+<a href="{{ url }}" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1200" data-aos-delay="{{ random data="50|100|150|200|250|300|350|400" }}" >
+    <div class="transition duration-300 text-black  transform hover:-translate-y-3 hover:text-blue ">
+        <div class="mb-8">
+            {{ if thumbnail }}
+                {{ thumbnail }}
+                    <img class="w-full" src="{{ url }}" alt="{{ alt }}">
+                {{ /thumbnail }}
+            {{ /if }}
+            <h3 class="font-bold text-2xl mt-2">
+            {{ title }}
+            </h3>
+        </div>
+    </div>
+</a>

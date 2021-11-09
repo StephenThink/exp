@@ -1,0 +1,49 @@
+<div class="h-full">
+
+    <div class="container main__panel grid gap-4  md:grid-cols-2">
+        <div data-aos="fade-down" data-aos-duration="900" data-aos-delay="500" >
+            <div class="relative pb-9/12 md:pb-2/4'mb-3">
+                {{ news_image }}
+                    <img class="absolute h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+                {{ /news_image }}
+            </div>
+        </div>
+        <div class="flex justify-center no-wrap flex-col">
+            <h1 class="text-xl text-light-blue font-bold mb-2" data-aos="fade-down" data-aos-duration="1300">{{ config.app.name }}</h1>
+            <h2 class="text-4xl text-black font-bold" data-aos="fade-up" data-aos-duration="1000" data-delay="300">{{ title }}</h2>
+        </div>
+    </div>
+
+    <div class="container">
+
+    </div>
+
+    <div class="container flex ">
+        <div class="hidden md:inline-block md:w-2/12"></div>
+        <div class="w-full md:w-1/3 flex flex-col md:flex-row text-lg justify-between">
+            <p class="mb-3 md:mb-0" data-aos="fade-right" data-aos-duration="600">
+                Written by 
+                {{ if author }} 
+                    {{ author.name }}
+                {{ else }}
+                    {{ 'Jonesco' }}
+                {{ /if }}
+            </p>
+            <p class="mb-3 md:mb-0" data-aos="fade-right" data-aos-duration="600" data-aos-delay="500">{{ date format="d.m.y" }}</p>
+            <p class="mb-3 md:mb-0" data-aos="fade-right" data-aos-duration="600" data-aos-delay="1000">{{ read_time }} {{ suffix }} read</p>
+        </div>
+    </div>
+
+    {{ partial:partials/offset_border }}
+
+    <div class="container flex mb-5">
+        <div class="hidden md:inline-flex md:w-2/12"></div>
+        <div class="w-full md:w-1/2" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
+            {{ partial:partials/main_content without_panel="true" }}
+        </div>
+    </div>
+
+
+    
+
+</div>

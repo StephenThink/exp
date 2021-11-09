@@ -1,0 +1,70 @@
+<div class="h-full">
+{{ partial:partials/hero mini="true"}}
+
+
+<!-- Leader Section -->
+
+<div class="md:mt-32">
+        {{ leaders }}
+            {{ partial:partials/wavebox title=name  no-gap="true" leadership-panel="true" flip="true"}}   
+        {{ /leaders }}
+</div>
+    
+{{# Slider #}}
+<section class="hidden md:block department-managers main__panel relative overflow-hidden -mr-5 ">
+    <div class="container relative  ">
+
+        <div class="text-2xl font-bold ">
+            {{ department_managers_title }}
+        </div>
+
+        
+        <div class="hidden md:block -mr-5 mt-8 mb-6 w-full " style="width: 100%;">
+                <div class="department-manager-slider flex flex-no-wrap gap-4 " 
+                    
+                >
+                    {{ department_managers }}
+                        
+                        <div class=" rounded flex flex-col place-content-evenly items-center justify-between text-white ">
+                            {{ partial:flipping_card what-am-i-flipping="leadership" fixed-col="w-64 h-96" gap-size="m-2" front-label="justify-between"}}
+                            
+    
+                        </div>
+                    {{ /department_managers }}
+                </div>
+            </div>
+    </div>
+</section>
+
+{{# Mobile #}}
+<section class="md:hidden main__panel relative overflow-hidden ">
+        <div class="container relative  ">
+    
+            <div class="text-2xl font-bold ">
+                {{ department_managers_title }}
+            </div>
+
+<div class=" -mr-5 mt-8 mb-6 w-full ">
+        <div class="flex flex-wrap gap-4 " 
+            
+        >
+            {{ department_managers }}
+                
+                <div class="w-full rounded flex flex-col place-content-evenly items-center justify-between text-white ">
+                    {{ partial:flipping_card what-am-i-flipping="leadership" fixed-col="w-64 h-96" gap-size="m-2" front-label="justify-between"}}
+                    
+
+                </div>
+            {{ /department_managers }}
+        </div>
+    </div>
+</div>
+</section>
+
+
+{{ partial:partials/_read_more_items }}
+
+{{ section:scripts }}
+    <script src="{{ mix src='/js/leadership.js' }}"></script>
+{{ /section:scripts }}
+</div>

@@ -1,0 +1,54 @@
+<div class="h-screen-heading grid grid-cols-2 -mx-5 -mb-24">
+    <div class="h-full bg-green-500 pb-full relative">    
+        {{ page_image }}
+            <img class="absolute h-full w-full object-cover" src="{{ url }} " alt="{{ alt }}">
+        {{ /page_image }}
+    </div>
+    <div class="h-full flex flex-col items-center justify-between">
+            <div class="w-full h-full flex items-center justify-center">
+                <div class="w-1/2 ">
+                                    
+                    {{ user:register_form class="text-grey-600" role="form" aria-label="Register form" }}
+
+                    
+                        {{ if errors }}
+                            <div class="bg-red-800 text-white p-2 mb-4 rounded">
+                                {{ errors }}
+                                    {{ value }}<br>
+                                {{ /errors }}
+                            </div>
+                        {{ /if }}
+                        
+                        <h1 class="font-bold text-2xl mb-4">{{ title }}</h1>
+
+                        <fieldset class="flex flex-col ">
+                            <label>Email</label>
+                            <input class="px-4 py-2 w-full rounded ring-2 ring-transparent bg-light-grey text-gray-900 placeholder-gray-600 focus:ring-blue" type="email" name="email" value="{{ old:email }}" />                            
+                        </fieldset>
+
+                        <fieldset class="flex flex-col">
+                            <label>Password</label>
+                            <input class="px-4 py-2 w-full rounded ring-2 ring-transparent bg-light-grey text-gray-900 placeholder-gray-600 focus:ring-blue" type="password" name="password" value="{{ old:password }}" />
+                        </fieldset>
+
+                        <fieldset class="flex flex-col">
+                            <label>Password Confirmation</label>
+                            <input class="px-4 py-2 w-full rounded ring-2 ring-transparent bg-light-grey text-gray-900 placeholder-gray-600 focus:ring-blue" type="password" name="password_confirmation" value="{{ old:password_confirmation }}" />
+                        </fieldset>
+
+
+                        <div class=" mt-4">
+                            <button type="submit" class=" py-2 px-3 mr-3 ring-2 ring-transparent rounded transition duration-500 text-white bg-light-blue hover:bg-blue focus:ring-grey" alt="Register for an account on the Jonesco Plastics site">{{ trans:jonesco.site.sign_up }}</button>
+                        </div>
+
+                    {{ /user:register_form }}
+                </div>
+            </div>
+            <div class="bg-grey p-20 w-full">
+                <div class="w-1/2 mx-auto">
+                    <h2 class="font-bold text-black text-2xl mb-4">{{ trans:jonesco.site.have_account }}</h2>
+                    <a href="{{ link to="login" }}" class="bg-black text-white py-2 px-4 rounded">{{ trans:jonesco.site.log_in }}</a>
+                </div>
+            </div>
+        </div>
+</div>

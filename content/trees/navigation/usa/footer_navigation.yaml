@@ -1,0 +1,33 @@
+tree:
+  -
+    title: Explore
+    url: /
+    children:
+      -
+        entry: 0a30c225-a5c4-4942-9ea9-dd59a9cfdb80
+      -
+        entry: 879ce77e-3299-46ab-a275-443ec4d97cd6
+  -
+    title: 'Meet us'
+    url: /
+    children:
+      -
+        entry: 6c699a8c-9a9c-4b92-86ef-d5991ca994c7
+      -
+        entry: 90363b6d-b861-47b3-ac92-f98b8afbc6bb
+  -
+    title: Learn
+    url: /
+    children:
+      -
+        entry: 28ab90d2-3f16-4a16-9510-952fb6070a48
+      -
+        entry: 9638feaa-04c8-46da-af56-1ca758a8314c
+  -
+    title: 'Work here'
+    url: /
+    children:
+      -
+        entry: 50d9de0a-6033-49e5-b97d-4b6fe569548e
+      -
+        entry: 63ca60ba-7973-43e5-868c-917e43611ca2

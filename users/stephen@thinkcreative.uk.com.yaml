@@ -1,0 +1,69 @@
+name: Stephen
+super: true
+taxonomy_terms:
+  - commercial-vehicle
+  - environmental
+  - fire-and-safety
+  - storage
+parent_categories:
+  - commercial-vehicle
+  - fire-and-safety
+  - environmental
+  - storage
+id: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+password_hash: $2y$10$iDc9yO3/LBMvMWGB2CNE1Olf64t/3vslyX9zjb8omzT9QjZ8NvbFi
+preferences:
+  taxonomies:
+    parent_category:
+      columns:
+        - title
+        - slug
+        - sjj
+    vacanies:
+      columns:
+        - title
+        - slug
+        - content
+    sub_categories:
+      columns:
+        - title
+        - slug
+        - sjj
+    sortable_category:
+      after_save: continue_editing
+      columns:
+        - title
+        - slug
+        - sort_order
+  collections:
+    products:
+      per_page: 100
+      columns:
+        - title
+        - slug
+        - parent_category
+        - sub_categories
+        - sortable_category
+      after_save: continue_editing
+    what_we_do:
+      after_save: continue_editing
+    vacancies:
+      after_save: continue_editing
+    news:
+      columns:
+        - title
+        - slug
+        - date
+        - news_image
+      after_save: continue_editing
+    working_here:
+      after_save: continue_editing
+    pages:
+      after_save: continue_editing
+    about:
+      after_save: continue_editing
+    legal:
+      after_save: continue_editing
+  assets:
+    assets:
+      mode: table

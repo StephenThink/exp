@@ -1,0 +1,637 @@
+  <div class="h-full">
+
+    {{ partial:partials/hero mini="true"  }}
+
+
+    {{ grid_content }}
+    
+    <section class="md:mt-24">
+            {{ partial:partials/wavebox flip="true" no-gap="true" }}
+            
+        </section>
+       
+    {{ /grid_content }}    
+
+    <section class="md:-mx-5">
+        <div class="relative md:mt-16">
+                
+            <section class="relative container overflow-hidden the-global-reach main__panel_small md:main__panel ">
+
+                <div class="container relative md:-mt-6 lg:mt-0 xl:mt-12 2xl:mt-6">
+
+                    <div class="text-4xl md:text-2xl lg:text-4xl font-bold mt-4">
+                        {{ slider_title }}
+                    </div>
+
+                    <div class="text-lg md:text-md lg:text-xl xl:text-2xl  mt-4">
+                        {{ slider_description }}
+                    </div>
+
+                    <div class="w-full mt-10 -mr-5 mb-6 mt-4" style="width: 100%;">
+                        <div class="flex flex-no-wrap gap-4 global-reach-slider">
+                            {{ card_grid }}
+                                {{# Made the image on a smaller device just less than full so the the user can see theres something else to the right to slide #}}
+                                <div class="flex flex-col items-center justify-end w-10/12 md:w-1/3 h-64 mr-4 text-white place-content-evenly bg-blue">
+                                        <div class="relative w-full h-full overflow-hidden">
+                                            {{ icon }}
+                                                <img src="{{ url }}" alt="{{ alt }}" class="object-cover h-full w-full">
+                                            {{ /icon}}
+                                            <div class="absolute bottom-0 z-10 w-full p-2 bg-gray-900 bg-opacity-60">{{ title }}</div>
+                                        </div>
+
+                                </div>
+                            {{ /card_grid }}
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </section>
+    <section class="main__panel small override -mt-8">
+        <div class="container">
+            <div class="text-4xl md:text-2xl lg:text-4xl font-bold"
+            data-aos="fade-down"
+            data-aos-duration="1000"
+            >{{ map_title }}</div>
+            <p class="w-full pt-2 text-lg md:text-md lg:text-xl xl:text-2xl mt-4 "
+            data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="1000"
+            >{{ map_content }}</p>
+        </div>
+
+        {{# World Map Insert Here#}}
+        <div class="w-full mt-5 md:mt-10  h-96 chartdiv" style="height:500px">
+
+        </div>
+    </section>
+
+    {{# read more #}}
+    {{ partial:partials/_read_more_items }}
+
+
+
+</div>
+
+{{ section:scripts }}
+    <script src="{{ mix src='/js/global-reach.js' }}"></script>
+
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <script>
+        am4core.ready(function() {
+        
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+        
+        // Create map instance
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+        // Set some colours
+        chart.colors.list = [
+            am4core.color("#2699D6"),
+            am4core.color("#e8e8e8"),
+            
+        ];
+        
+        // Set map definition
+        chart.geodata = am4geodata_worldLow;
+        
+        // Set projection
+        chart.projection = new am4maps.projections.Miller();
+        
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+        
+        // Exclude Antartica
+        polygonSeries.exclude = ["AQ"];
+        
+        // Make map load polygon (like country names) data from GeoJSON
+        polygonSeries.useGeodata = true;
+        
+        // Configure series
+        // var polygonTemplate = polygonSeries.mapPolygons.template;
+        // polygonTemplate.tooltipText = "{name}";
+        // polygonTemplate.polygon.fillOpacity = 0.6;
+        
+        
+        // Create hover state and set alternative fill color
+        // var hs = polygonTemplate.states.create("hover");
+        // hs.properties.fill = chart.colors.getIndex(0);
+        
+        // Add image series
+        var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+        imageSeries.mapImages.template.propertyFields.longitude = "longitude";
+        imageSeries.mapImages.template.propertyFields.latitude = "latitude";
+        imageSeries.mapImages.template.tooltipText = "{title}";
+        imageSeries.mapImages.template.propertyFields.url = "url";
+        
+        var circle = imageSeries.mapImages.template.createChild(am4core.Circle);
+        circle.radius = 4;
+        circle.propertyFields.fill = "color";
+        circle.nonScaling = true;
+        
+        var circle2 = imageSeries.mapImages.template.createChild(am4core.Circle);
+        circle2.radius = 6;
+        circle2.propertyFields.fill = "color";
+        circle2.propertyFields.fillOpacity = 0.2
+        
+        
+        circle2.events.on("inited", function(event){
+          animateBullet(event.target);
+        })
+        
+        
+        function animateBullet(circle) {
+            var animation = circle.animate([
+                { property: "scale", from: 1 / chart.zoomLevel, to: 5 / chart.zoomLevel }, 
+                { property: "opacity", from: 1, to: 0 }
+                ],
+                (Math.random() * 2000 * 4 ), 
+                am4core.ease.circleOut,
+                    
+                
+                
+            );
+
+            //console.log(animation,  )
+            
+
+            animation.events.on("animationended", function(event){
+              animateBullet(event.target.object);
+            })
+        }
+        
+        var colorSet = new am4core.ColorSet();
+        
+        imageSeries.data = [ 
+            {
+                "title": "{{ trans:map.places.pre }}",
+                "latitude": 53.76667,
+                "longitude":  -2.71667,
+                "color":"#2F2D7E"
+            }, 
+            {
+                "title": "{{ trans:map.places.gue }}",
+                "latitude": 49.465691,
+                "longitude": -2.585278,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.aus }}",
+                "latitude": -25.274399,
+                "longitude": 133.775131,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.can }}",
+                "latitude": 56.130367,
+                "longitude": -106.346771,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.cze }}",
+                "latitude": 49.817493,
+                "longitude": 15.472962,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.isr }}",
+                "latitude": 31.046051,
+                "longitude": 34.851612,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.zea }}",
+                "latitude": -44.791794,
+                "longitude": 170.231086,
+                "color":"#2699D6"
+            }, 
+            {
+
+                "title": "{{ trans:map.places.pol }}",
+                "latitude": 52.80254699889474,
+                "longitude": 18.872140682143847,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.tri }}",
+                "latitude": 10.40188330811531,
+                "longitude": -61.25035415693521,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.usa }}",
+                "latitude": 40.537227706781714,
+                "longitude": -98.96296164325973,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.alg }}",
+                "latitude": 28.148858256784973, 
+                "longitude": 3.057488277382269,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.bol }}",
+                "latitude": -16.783909014552297, 
+                "longitude": -64.66336494013483,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.chil }}",
+                "latitude": -26.489043657897177, 
+                "longitude": -69.95121672540117,
+                "color":"#2699D6"
+            }, 
+            
+            {
+                "title": "{{ trans:map.places.col }}",
+                "latitude": 3.448105975417283,
+                "longitude":  -72.66892503632722,
+                "color":"#2699D6"
+            }, 
+            
+            {
+                "title": "{{ trans:map.places.cyr }}",
+                "latitude": 35.051289757611066,
+                "longitude":  33.17733873287811,
+                "color":"#2699D6"
+            }, 
+            
+            {
+                "title": "{{ trans:map.places.gre }}",
+                "latitude": 39.46509391345996, 
+                "longitude": 22.054580184707746,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.ind }}",
+                "latitude": 22.630313415080266,
+                "longitude": 79.72090531094801,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.ire }}",
+                "latitude": 53.21975922194911,
+                "longitude":  -7.321978921497219,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.ita }}",
+                "latitude": 42.74026179426387, 
+                "longitude": 12.81496457473841,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.mal }}",
+                "latitude": -0.6312654305437241,
+                "longitude":  73.22319184876385,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.mex }}",
+                "latitude": 23.617649275473156,
+                "longitude":  -101.92802861269195,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.mor }}",
+                "latitude": 31.87128740530198,
+                "longitude":  -6.19577543837249,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.net }}",
+                "latitude": 52.13781990098422,
+                "longitude":  5.607377629561,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.nor }}",
+                "latitude": 54.662601000521086, 
+                "longitude": -7.022315067796384,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.pak }}",
+                "latitude": 29.89720823064151,
+                "longitude":  68.54674533730206,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.pan }}",
+                "latitude": 8.534373943311087, 
+                "longitude": -80.31776633422412,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.por }}",
+                "latitude": 39.707925064030555, 
+                "longitude": -8.187127683319398,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.spa }}",
+                "latitude": 39.58887753514254,
+                "longitude":  -3.1294487143082543,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.tun }}",
+                "latitude": 34.20114791737196, 
+                "longitude": 9.307860333884317,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.tur }}",
+                "latitude": 38.94623270654771,
+                "longitude":  35.5828231090298,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.arm }}",
+                "latitude": 40.28347149231816, 
+                "longitude": 44.655605495063284,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.aze }}",
+                "latitude": 40.32172098107989, 
+                "longitude": 48.11298987498065,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.bah }}",
+                "latitude": 26.043135001843716, 
+                "longitude": 50.54221185806067,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.chi }}",
+                "latitude": 36.46278615221704,
+                "longitude":  103.92887540674724,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.den }}",
+                "latitude": 55.61892656051562, 
+                "longitude": 9.452346333615582,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.egy }}",
+                "latitude": 26.86073751773817, 
+                "longitude":  29.599465561711444,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.est }}",
+                "latitude": 58.692357403307355, 
+                "longitude":  25.590169715935733,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.for }}",
+                "latitude": 62.160252791882776, 
+                "longitude":  -6.982130780317211,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.fin }}",
+                "latitude": 61.992605143714975, 
+                "longitude":  26.82769189256593,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.ice }}",
+                "latitude": 64.96409333037677, 
+                "longitude": -18.698390419616416,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.indo }}",
+                "latitude": -4.249842011706109, 
+                "longitude": 121.23148805900209,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.jap }}",
+                "latitude": 36.48066002247485, 
+                "longitude":  138.999854461478,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.kaz }}",
+                "latitude": 48.138301063560746, 
+                "longitude":  67.3849621255867,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.kuw }}",
+                "latitude": 29.33812573493415, 
+                "longitude":  47.4361164327186,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.lat }}",
+                "latitude": 57.01566629350513, 
+                "longitude":  25.68408474348997,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.lib }}",
+                "latitude": 26.943757864577403, 
+                "longitude":  17.61976557284335,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.lit }}",
+                "latitude": 55.65337671567743, 
+                "longitude":  23.63841285870799,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.mac }}",
+                "latitude": 22.179895843612524, 
+                "longitude":  113.47466918920206,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.mala }}",
+                "latitude": 3.6947632690542562, 
+                "longitude":  102.36717396453551,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.norw }}",
+                "latitude": 61.98358628792014, 
+                "longitude":  8.968059911419015, 
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.oma }}",
+                "latitude": 20.586539412347957,
+                "longitude":   56.24710287795742, 
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.qua }}",
+                "latitude": 25.31503971120961, 
+                "longitude": 51.17304453316949,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.rus }}",
+                "latitude": 62.40914913536958, 
+                "longitude": 95.08984383824811,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.sau }}",
+                "latitude": 23.249847516476404, 
+                "longitude": 46.32597709502139,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.sin }}",
+                "latitude": 21.3483074708368756, 
+                "longitude": 103.87715914577718,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.kor }}",
+                "latitude": 36.6383085923713, 
+                "longitude": 127.923629445418,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.swe }}",
+                "latitude": 64.53523410367376, 
+                "longitude": 16.68566483891052,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.tha }}",
+                "latitude": 15.904233521161212, 
+                "longitude": 101.32016657268206,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.uae }}",
+                "latitude": 23.785365163327086,
+                "longitude":  54.06377448450185,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.aust }}",
+                "latitude": 47.579229488797075,
+                "longitude":   14.394321740524953,
+                "color":"#2699D6"
+            }, 
+            
+            {
+                "title": "{{ trans:map.places.bel }}",
+                "latitude": 50.53566248206688, 
+                "longitude":   4.75059759364659,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.bul }}",
+                "latitude": 42.52561200487816, 
+                "longitude": 25.40921435637082,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.cro }}",
+                "latitude": 45.12653991127563, 
+                "longitude": 14.998115844572562,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.ger }}",
+                "latitude": 51.0760784536764, 
+                "longitude": 10.38344803763897,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.hun }}",
+                "latitude": 46.952110565649235,
+                "longitude":  19.843572198939153,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.lux }}",
+                "latitude": 49.616808686030446, 
+                "longitude":  6.10564543570532,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.ser }}",
+                "latitude": 44.0942074640641, 
+                "longitude":  20.71154979405536,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.slo }}",
+                "latitude": 46.055599214231336, 
+                "longitude":  14.61602441933823,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.afr }}",
+                "latitude": -30.821920352625607, 
+                "longitude":  23.821745977141916,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.swi }}",
+                "latitude": 46.768637695585475, 
+                "longitude":  7.958584991888676,
+                "color":"#2699D6"
+            },
+            {
+                "title": "{{ trans:map.places.fra }}",
+                "latitude": 47.231417139666114, 
+                "longitude":  2.2682435047850227,
+                "color":"#2699D6"
+            },  
+            {
+                "title": "{{ trans:map.places.sec }}",
+                "latitude": 50.54536630894186, 
+                "longitude":  3.0258728323110455,
+                "color":"#2F2D7E"
+            },
+            {
+                "title": "{{ trans:map.places.eng }}",
+                "latitude": 53.03203516987672, 
+                "longitude":  -1.3175298776838111,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.sco }}",
+                "latitude": 56.47833344911346, 
+                "longitude":  -4.086084468039034,
+                "color":"#2699D6"
+            }, 
+            {
+                "title": "{{ trans:map.places.wal }}",
+                "latitude": 52.39310560440079, 
+                "longitude":  -3.6246587029798296,
+                "color":"#2699D6"
+            }, 
+
+        ];
+        
+        }); // end am4core.ready()
+        </script>
+        
+{{ /section:scripts }}

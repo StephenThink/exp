@@ -1,0 +1,57 @@
+title: Wavebox
+fields:
+  -
+    handle: wave_title
+    field:
+      display: 'Wave Title'
+      type: text
+      localizable: true
+      validate:
+        - required
+      width: 33
+  -
+    handle: link_to
+    field:
+      max_items: 1
+      mode: default
+      display: 'Link to'
+      type: entries
+      icon: entries
+      localizable: true
+      width: 33
+      listable: hidden
+  -
+    handle: link_text
+    field:
+      input_type: text
+      antlers: false
+      display: 'Link to Text'
+      type: text
+      icon: text
+      width: 33
+      listable: hidden
+      localizable: true
+      instructions: 'Fill this in to display read me link'
+  -
+    handle: introduction
+    field:
+      antlers: false
+      display: Introduction
+      type: textarea
+      icon: textarea
+      localizable: true
+      listable: hidden
+  -
+    handle: wave_thumbnail
+    field:
+      mode: grid
+      container: assets
+      folder: /
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      display: 'Wave Thumbnail'
+      type: assets
+      icon: assets
+      localizable: true
+      listable: hidden

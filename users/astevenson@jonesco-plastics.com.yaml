@@ -1,0 +1,11 @@
+name: 'Ashley Stevenson'
+groups:
+  - editor
+roles:
+  - basic
+id: b30e6ac4-b214-4b63-b768-aab71cb3c1b9
+password_hash: $2y$10$fZQ6SnUiM8kyDp4JGsWEt.PYT6sHqjgZB1SDBaJ1xmw1e6Xi1kiCe
+preferences:
+  collections:
+    products:
+      per_page: 100

@@ -1,0 +1,83 @@
+<div class="fixed inset-0 z-350 flex items-center justify-center overflow-auto bg-black bg-opacity-25 cookie-wrapper">
+    <div class="relative w-screen h-screen">
+        <div class="mx-auto md:mx-0 absolute w-full md:w-1/2 lg:w-1/3 2xl:w-1/4 bottom-0 right-0 rounded-xl border-2 border-blue bg-white text-blue z-350 m-2 p-2">
+    <div class="flex flex-col justify-center items-center space-y-2">
+        <div>
+            <img src="{{ cookies.box_image }}" class="w-24 md:w-32 lg:w-40" alt="">
+        </div>
+    
+        <div class="font-bold text-lg">{{ cookies.box_title }}</div>
+    
+        <div class="text-center whitespace-pre-wrap modal-bulleted">{{ cookies.box_content }}</div>
+        
+        
+        <div class="grid md:grid-cols-2 md:justify-around w-full gap-2">
+            <a id="yesBtn" href="#" class="bg-green text-white m-1 p-2 rounded text-center cursor-pointer">{{cookies.left_button_label}}</a>
+            <a id="noBtn" href="#" class="bg-blue text-white m-1 p-2 rounded text-center cursor-pointer">{{cookies.right_button_label}}</a>
+            
+        </div>
+        
+    </div>
+        
+
+   
+
+
+    <script>
+
+        const cookieBox = document.querySelector(".cookie-wrapper"),
+        acceptBtn = document.getElementById("yesBtn");
+        declineBtn = document.getElementById("noBtn");
+        
+        acceptBtn.onclick = ()=> {
+            console.log("button clicked YES");
+            // Setting Cookie for 1 month, after 1 month cookie will expire
+            document.cookie = "CookieBy=GoogleAdvertising; max-age="+60*60*24*30;
+            if(document.cookie){ // If Cookie is set 
+            cookieBox.classList.add("hidden");
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-YWPX4KW87J');
+
+            
+            } else {
+                alert("Cookie can't be set!");
+            }
+            
+        }
+
+        
+
+        declineBtn.onclick = ()=> {
+            console.log("button clicked No");
+            document.cookie = "CookieBy=NoTracking; max-age="+60*60*24*30;
+            if(document.cookie){ // If Cookie is set 
+            cookieBox.classList.add("hidden");
+            } else {
+                alert("Cookie can't be set!");
+            }
+        }
+
+        
+
+        // Check to see if the cookie exists if it does hide the box.
+        let checkCookie = document.cookie.indexOf("CookieBy=GoogleAdvertising");
+        let checkCookie2 = document.cookie.indexOf("CookieBy=NoTracking")
+        console.log(checkCookie, checkCookie2);
+        checkCookie != -1 || checkCookie2 != -1 ? cookieBox.classList.add("hidden") : cookieBox.classList.remove("hidden")
+
+        if(checkCookie != -1) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-YWPX4KW87J');
+        }
+
+    </script>
+        </div>
+    </div>
+</div>

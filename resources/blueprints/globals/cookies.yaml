@@ -1,0 +1,66 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: box_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Box Title'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+      -
+        handle: box_content
+        field:
+          restrict: false
+          automatic_line_breaks: true
+          automatic_links: false
+          escape_markup: false
+          smartypants: false
+          antlers: false
+          display: 'Box Content'
+          type: markdown
+          icon: markdown
+          listable: hidden
+          localizable: true
+      -
+        handle: box_image
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: 'Box image'
+          type: assets
+          icon: assets
+          listable: hidden
+          localizable: true
+      -
+        handle: left_button_label
+        field:
+          input_type: text
+          antlers: false
+          display: 'Left Button Label'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          width: 50
+          instructions: 'This is the Accept button for Google Analytics'
+      -
+        handle: right_button_label
+        field:
+          input_type: text
+          antlers: false
+          display: 'Right Button Label'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          width: 50
+          instructions: 'This is the button for no tracking'

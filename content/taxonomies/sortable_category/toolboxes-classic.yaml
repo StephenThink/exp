@@ -1,0 +1,18 @@
+title: 'Toolboxes Classic'
+updated_by: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+updated_at: 1632232320
+blueprint: sortable_category
+sort_order: 3
+localizations:
+  france:
+    title: 'Coffres A Outils - Classique'
+    updated_by: 6f380b3d-901c-48c0-ad5c-495e8a13ba14
+    updated_at: 1632231297
+  germany:
+    title: 'Werkzeugkästen Klassisch'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632145055
+  spain:
+    title: 'Cajas de Herramientas Clásica'
+    updated_by: 3ec554c2-e8cb-4f28-af79-effcd537d274
+    updated_at: 1632145346

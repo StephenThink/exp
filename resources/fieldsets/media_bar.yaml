@@ -1,0 +1,88 @@
+title: 'Media Bar'
+fields:
+  -
+    handle: media_sets
+    field:
+      collapse: false
+      max_sets: 3
+      sets:
+        media_set:
+          display: 'Media Set'
+          fields:
+            -
+              handle: media_type
+              field:
+                options:
+                  pdf: PDF
+                  internal: Internal
+                  external: External
+                  youtube: YouTube
+                multiple: false
+                max_items: 1
+                clearable: false
+                searchable: true
+                taggable: false
+                push_tags: false
+                cast_booleans: false
+                display: 'Media Type'
+                type: select
+                icon: select
+                listable: hidden
+            -
+              handle: media_text
+              field:
+                input_type: text
+                antlers: false
+                display: 'Media Text'
+                type: text
+                icon: text
+                listable: hidden
+            -
+              handle: media_caption
+              field:
+                antlers: false
+                display: 'Media Caption'
+                type: textarea
+                icon: textarea
+                listable: hidden
+            -
+              handle: media_link
+              field:
+                display: 'Media Link'
+                type: link
+                icon: link
+                listable: hidden
+                if_any:
+                  media_type: 'contains_any external|internal'
+            -
+              handle: media_pdf
+              field:
+                mode: grid
+                container: assets
+                folder: /
+                restrict: false
+                allow_uploads: true
+                max_files: 1
+                display: 'Media PDF'
+                type: assets
+                icon: assets
+                listable: hidden
+                if:
+                  media_type: 'equals pdf'
+            -
+              handle: youtube_link
+              field:
+                input_type: text
+                antlers: false
+                display: 'Youtube Link'
+                type: text
+                icon: text
+                listable: hidden
+                instructions: 'Ensure your link follows this example, https://www.youtube.com/embed/{J0n3sc0}'
+                if:
+                  media_type: 'equals youtube'
+      display: 'Media Sets'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      localizable: true

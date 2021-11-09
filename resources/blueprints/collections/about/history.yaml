@@ -1,0 +1,142 @@
+title: History
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: hero
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: excerpt
+        field:
+          antlers: false
+          display: Excerpt
+          type: textarea
+          icon: textarea
+          width: 75
+          listable: hidden
+          localizable: true
+      -
+        handle: link_text
+        field:
+          input_type: text
+          antlers: false
+          display: 'Link Text'
+          type: text
+          icon: text
+          width: 25
+          listable: hidden
+          localizable: true
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 0
+          display: Thumbnail
+          type: assets
+          icon: assets
+          localizable: true
+          listable: hidden
+      -
+        handle: history
+        field:
+          collapse: false
+          sets:
+            decade:
+              display: Decade
+              fields:
+                -
+                  handle: year
+                  field:
+                    mode: single
+                    time_enabled: false
+                    time_required: false
+                    earliest_date: '1900-01-01'
+                    full_width: false
+                    inline: false
+                    columns: 1
+                    rows: 1
+                    display: Year
+                    type: date
+                    icon: date
+                    listable: hidden
+                    instructions: 'Select the year and choose 1st Jan. We only care about the year.'
+                -
+                  handle: decade_image
+                  field:
+                    mode: grid
+                    restrict: false
+                    allow_uploads: true
+                    display: Decade_image
+                    type: assets
+                    icon: assets
+                    instructions: 'This will be displayed underneath the decade.'
+                    listable: hidden
+                    container: assets
+                    folder: about/history-timeline
+                -
+                  handle: history_item
+                  field:
+                    collapse: false
+                    sets:
+                      year_item:
+                        display: 'Year Item'
+                        fields:
+                          -
+                            handle: year
+                            field:
+                              input_type: text
+                              antlers: false
+                              display: Year
+                              type: text
+                              icon: text
+                              listable: hidden
+                          -
+                            handle: text
+                            field:
+                              antlers: false
+                              display: Text
+                              type: textarea
+                              icon: textarea
+                              listable: hidden
+                    display: 'History Item'
+                    type: replicator
+                    icon: replicator
+                    listable: hidden
+          display: History
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden

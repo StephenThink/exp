@@ -1,0 +1,24 @@
+title: Accent
+fields:
+  -
+    handle: accent_title
+    field:
+      input_type: text
+      antlers: false
+      display: 'Accent Title'
+      type: text
+      icon: text
+      listable: hidden
+  -
+    handle: accent_asset
+    field:
+      mode: grid
+      container: assets
+      folder: accents
+      restrict: true
+      allow_uploads: true
+      max_files: 1
+      display: 'Accent Asset'
+      type: assets
+      icon: assets
+      listable: hidden

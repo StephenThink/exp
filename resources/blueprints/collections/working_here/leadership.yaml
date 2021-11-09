@@ -1,0 +1,178 @@
+title: Leadership
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        import: hero
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Thumbnail
+          type: assets
+          icon: assets
+          localizable: true
+          listable: hidden
+      -
+        handle: leaders
+        field:
+          collapse: false
+          sets:
+            leader:
+              display: Leader
+              fields:
+                -
+                  handle: name
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Name
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                -
+                  handle: role
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Role
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                -
+                  handle: about
+                  field:
+                    antlers: false
+                    display: About
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                -
+                  handle: leaders_image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: 'Leaders Image'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+          display: Leaders
+          type: replicator
+          icon: replicator
+          localizable: true
+          listable: hidden
+      -
+        handle: department_managers_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Department Managers Title'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  staff_members:
+    display: 'Staff Members'
+    fields:
+      -
+        handle: department_managers
+        field:
+          collapse: false
+          sets:
+            manager:
+              display: manager
+              fields:
+                -
+                  handle: name
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Name
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                -
+                  handle: job_title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Job Title'
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: about
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: false
+                    antlers: false
+                    display: Markdown
+                    type: markdown
+                    icon: markdown
+                    listable: hidden
+                    validate:
+                      - 'max:660'
+          display: 'Department Managers'
+          type: replicator
+          icon: replicator
+          localizable: true
+          listable: hidden

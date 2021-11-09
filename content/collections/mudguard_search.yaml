@@ -1,0 +1,8 @@
+title: 'Mudguard Search'
+sites:
+  - english
+template: mudguard_search/index
+revisions: false
+date_behavior:
+  past: public
+  future: private

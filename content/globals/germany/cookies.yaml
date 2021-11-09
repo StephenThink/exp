@@ -1,0 +1,8 @@
+box_title: 'Nur zur Information...'
+box_content: |-
+  Diese Website verwendet Cookies für Analyse- und Leistungszwecke.
+
+  Wenn Sie unsere Datenschutzrichtlinie lesen möchten, finden Sie diese am Ende der Website.
+box_image: globals/J-logo_cookie.png
+left_button_label: Akzeptieren
+right_button_label: 'Nein danke'

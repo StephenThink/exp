@@ -1,0 +1,71 @@
+title: About
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+          localizable: true
+      -
+        import: hero
+      -
+        handle: half_width_hero
+        field:
+          display: 'Half Width Hero'
+          type: toggle
+          icon: toggle
+          width: 25
+          listable: hidden
+          localizable: true
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          restrict: false
+          allow_uploads: true
+          display: Thumbnail
+          type: assets
+          icon: assets
+          width: 50
+          listable: hidden
+          localizable: true
+      -
+        handle: introduction
+        field:
+          antlers: false
+          display: Introduction
+          type: textarea
+          icon: textarea
+          listable: hidden
+      -
+        import: card_grid
+      -
+        import: link_set
+      -
+        import: about_content
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden

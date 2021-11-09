@@ -1,0 +1,34 @@
+title: 'Link Set'
+fields:
+  -
+    handle: link_set
+    field:
+      collapse: false
+      sets:
+        item:
+          display: Item
+          fields:
+            -
+              handle: entry
+              field:
+                mode: default
+                display: Entry
+                type: entries
+                icon: entries
+                width: 66
+                listable: hidden
+            -
+              handle: link_text
+              field:
+                input_type: text
+                antlers: false
+                display: 'Link Text'
+                type: text
+                icon: text
+                width: 33
+                listable: hidden
+      display: 'Link Set'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      localizable: true

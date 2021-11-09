@@ -1,0 +1,62 @@
+<div class="h-full" x-data="environment()">
+
+{{ partial:partials/hero mini="true" }}
+
+
+{{ grid_content }}
+<div class="md:mt-32">
+{{ partial:partials/wavebox flip="true" no-gap="true" txt-first="true"}}
+</div>
+{{ /grid_content }}
+
+<section class="main__panel_small md:main__panel ">
+    <div class="w-full md:w-10/12 lg:w-full xl:w-11/12 2xl:w-8/12 container grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 mb-8 justify-items-center">
+        {{ card_grid }}
+        <div class="hidden md:block">
+            {{ partial:flipping_card what-am-i-flipping="enviroment" fixed_width="w-full md:w-80" }}
+        </div>
+
+
+        <div 
+        class="my-7 w-full relative flex flex-col {{ gap-size ?? 'm-4' }} tracking-tight text-white md:hidden" 
+        >
+            <div class="h-full w-full">
+                <div class="rounded-xl relative h-full p-4 item front bg-light-blue">
+                    <div class="inner">
+                        {{ if icon }}
+                        <div data-aos='fade-up'
+                        data-duration="900"
+                        data-aos-delay="300"
+                        data-easing="ease-in-out">
+                            {{ icon }}
+                            <img src="{{ url }}" class="w-24 h-24 object-contain mx-auto">
+                               
+                            {{ /icon}}
+                        </div>
+                        <div class="pt-6 text-md md:text-lg font-semibold"
+                        data-aos='fade-right'
+                                data-duration="500"
+                                data-aos-delay="300"
+                                data-easing="ease-in-out">{{ title }}</div>
+                    {{ else }}
+                        <div class="text-md md:text-lg font-bold text-center">{{ title }}</div>
+                    {{ /if}}
+                    
+                    <div class="pt-2 space-y-2 text-sm bulleted w-full break-words "
+                    data-aos='fade-right'
+                                data-duration="500"
+                                data-aos-delay="300"
+                                data-easing="ease-in-out">{{ text | safe_truncate:500:... }}</div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        {{ /card_grid }}
+    </div>
+</section>
+
+{{ partial:partials/_read_more_items }}
+
+{{ partial:partials/environment/environment_modal }}
+</div>

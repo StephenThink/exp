@@ -1,0 +1,42 @@
+tree:
+  -
+    title: Découvrir
+    url: /
+    children:
+      -
+        entry: 75278701-bd5a-4984-b565-c466665c65df
+      -
+        entry: ecbb4506-b2ab-4945-9fb0-1604e4abcc0c
+  -
+    title: 'Nous rencontrer'
+    url: /
+    children:
+      -
+        entry: b3de1ddf-b3fd-4f0d-a6b7-3fa4b02d4d1b
+      -
+        entry: 68f6f790-42fa-4fc6-95e5-7a79ce88e4a8
+  -
+    title: 'Nous connaître'
+    url: /
+    children:
+      -
+        entry: 39ec0fea-80a0-40e3-a8a9-a1b9ac9a2c60
+      -
+        entry: d276f9aa-f045-4e62-a021-4116c7289b19
+  -
+    title: 'Ressources humaines'
+    url: /
+    children:
+      -
+        entry: d053eb1a-9a7b-45fb-baf9-57d9c37bd530
+      -
+        entry: 6b327c2a-842d-4c18-89dc-21206b883677
+  -
+    title: 'Jonesco Catalogues'
+    children:
+      -
+        title: 'Catalogue Véhicules Industriels'
+        url: 'https://jonesco-website-data.s3.eu-west-2.amazonaws.com/FR/Catalogue+V%C3%A9hicules+Industriels+2021+FR.pdf'
+      -
+        title: 'Catalogue Produit'
+        url: 'https://jonesco-website-data.s3.eu-west-2.amazonaws.com/FR/Catalogue+Produit+FR.pdf'

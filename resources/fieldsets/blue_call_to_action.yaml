@@ -1,0 +1,97 @@
+title: 'Blue call to action'
+fields:
+  -
+    handle: need_custom_message
+    field:
+      display: 'Need Custom Message'
+      type: toggle
+      icon: toggle
+      listable: hidden
+      localizable: true
+  -
+    handle: cta_light_header
+    field:
+      input_type: text
+      antlers: false
+      display: 'Light Header'
+      type: text
+      icon: text
+      instructions: 'Creating this removes the option of a link'
+      listable: hidden
+      localizable: true
+      width: 50
+      if:
+        need_custom_message: 'equals true'
+  -
+    handle: cta_bold_header
+    field:
+      input_type: text
+      antlers: false
+      display: 'Bold Header'
+      type: text
+      icon: text
+      listable: hidden
+      localizable: true
+      width: 50
+      if:
+        need_custom_message: 'equals true'
+  -
+    handle: need_link
+    field:
+      display: 'Need Link'
+      type: toggle
+      icon: toggle
+      listable: hidden
+      localizable: true
+  -
+    handle: cta_link
+    field:
+      display: Link
+      type: link
+      icon: link
+      listable: hidden
+      localizable: true
+      width: 50
+      if:
+        need_link: 'equals 1'
+  -
+    handle: cta_link_text
+    field:
+      input_type: text
+      antlers: false
+      display: 'Link Text'
+      type: text
+      icon: text
+      listable: hidden
+      localizable: true
+      width: 50
+      if:
+        need_link: 'equals 1'
+  -
+    handle: cta_before_link
+    field:
+      input_type: text
+      antlers: false
+      display: 'Before Link'
+      type: text
+      icon: text
+      instructions: 'Text before the link'
+      localizable: true
+      listable: hidden
+      width: 50
+      if:
+        need_link: 'equals 1'
+  -
+    handle: cta_after_link
+    field:
+      input_type: text
+      antlers: false
+      display: 'After Link'
+      type: text
+      icon: text
+      instructions: 'Text that appears after the Link'
+      localizable: true
+      listable: hidden
+      width: 50
+      if:
+        need_link: 'equals 1'

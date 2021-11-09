@@ -1,0 +1,320 @@
+<div x-data="downloadCentre()" x-init="init({{ sorted_data | to_json | sanitize  }})">
+
+
+    <div class="relative px-4 py-8 -mx-5 bg-light-blue min-h-25vh hero h-screen-heading md:h-50-screen">
+        <div class="container flex flex-col justify-around h-full space-y-2">
+
+            {{ header_background_image }}
+                <img src="{{ url }}" alt="{{ alt }}" class="absolute top-0 left-0 h-full w-full object-fill absolute {{ image_classes }}" loading=eager>
+
+
+
+            <div class="z-10">
+                    <h2 class="text-2xl font-bold text-white">{{ salutation }}, {{ user }}{{ name }}{{ /user }}.</h2>
+                <h1 class="text-2xl font-bold text-white"> {{ greeting }} </h1>
+            </div>
+
+            <template x-if="!can_download">
+                <h1 class="text-2xl font-bold text-white">{{ nothing_to_download_text }}</h1>
+            </template>
+            {{ /header_background_image }}
+
+        </div>
+    </div>
+
+    <template x-if="can_download">
+        <section class="main__panel override ">
+            <template x-if="! download_view">
+                <div class="container">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="col-span-4 md:col-span-3" >
+                            <h1 class="mb-4 text-3xl font-bold ">{{ categories_wording }}</h1>
+                            <div class="grid hidden md:inline-grid selector-buttons justify-items-stretch "
+                                :class="selectorGridSize()">
+                                <template x-if="available_parents" x-for="(item, index) in available_parents" :key="item">
+
+                                    <span
+                                        :class=" {
+                                            'first' : index === 0,
+                                            'last': index === available_parents.length - 1,
+                                            'first-and-last ': available_parents.length === 1,
+                                            'inactive' : selected_parent !== item,
+                                            'bg-enviro' : index === 0,
+                                            'bg-commer' : index === 1,
+                                            'bg-fire' : index === 2,
+                                            'bg-storag' : index === 3,
+                                        }"
+
+                                        class="px-4 py-3 m-0 text-sm text-center text-white cursor-pointer dl-selector-button hover:shadow-inner lg:border-l lg:border-r"
+                                        :data-panel-target="item"
+                                        :data-index="index"
+                                        x-text="title(item)"
+
+                                        @click="{selected_parent = item; search_products_term = ''};"></span>
+                                </template>
+                            </div>
+                            <!-- Mobile View -->
+                            <div class="grid grid-cols-2 space-x-1 space-y-1 md:hidden selector-buttons justify-items-stretch "
+                                :class="selectorGridSize()">
+                                <template x-if="available_parents" x-for="(item, index) in available_parents" :key="item">
+                                    <span
+                                        :class=" {
+                                            'inactive' : selected_parent !== item
+                                        }"
+                                        class="px-4 py-3 m-0 text-sm text-center text-white cursor-pointer small-selector-button bg-grey hover:shadow-inner rounded-xl"
+                                        :data-panel-target="item"
+                                        :data-index="index"
+                                        x-text="title(item)"
+
+                                        @click="{selected_parent = item; search_products_term = ''}"
+                                    ></span>
+                                </template>
+                            </div>
+                            <div class="mt-4">
+                                <input type="search" x-model="search_products_term" class="w-full px-3 py-2 border md:text-lg md:w-1/2" placeholder="{{ input_placeholder }}">
+                                <template x-if="search_products_term != '' && search_products_term.length > 3 && search_products.length == 0">
+                                    <p class="text-red-500 small">{{no_items_in_search}}</p>
+                                </template>
+                            </div>
+                            <div class="mt-4">
+                                {{ select_wording }}
+                            </div>
+                            <!--  search area -->
+                            <template x-if="search_products.length > 0 ">
+                                <div class="mt-4 main-section">
+                                    <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-4">
+                                        <template x-for="(product, index ) in search_products">
+                                            {{ partial:partials.download_centre.product_item }}
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <!--  main product area -->
+                            <template x-for="[category, sub_categories] in Object.entries(data)"
+                                x-if="search_products.length == 0"
+                            >
+                                <div class="mt-4 main-section" :x-ref="category" x-show="selected_parent === category">
+                                    <template x-for="[sub_category, products] in Object.entries(sub_categories)">
+                                        <div class="mt-4">
+                                            <div class="text-xl font-bold" x-text="title(sub_category)"></div>
+                                            <div
+                                                class="inline-block p-2 my-3 text-sm border rounded cursor-pointer select-all-button hover:bg-blue hover:text-white"
+                                                data-selected=""
+                                                :data-category="category"
+                                                :data-subcategory="sub_category"
+                                                @click="selectAllSubCategory($event)"
+                                            >
+                                            {{ select_all_text }}
+                                            </div>
+                                            <div class="grid grid-cols-2 gap-4 mt-4 md:grid-cols-4">
+                                                <template x-for="[index, product] in Object.entries(products)">
+                                                    {{ partial:partials.download_centre.product_item }}
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+
+                        <div class="relative col-span-4 sidebar md:col-span-1">
+
+                            <div class="sticky bg-white download-list top-spacing z-2">
+                                <h2 class="z-0 text-2xl font-bold">{{ download_sidebar_wording }}</h2>
+                                <div class="p-4 pb-0 mt-4 rounded bg-light-grey">
+                                    <div class="overflow-scroll max-h-64">
+                                        <ul>
+                                            <template x-for="(product, index) in selected_products" x-transition x-show="selected_products.length > 0 ">
+                                                <li class="flex justify-between pr-3 mb-1 overflow-hidden">
+                                                    <div class="flex items-center">
+                                                        <div class="mr-1 overflow-hidden border rounded w-14 max-w-3-5 min-w-3-5">
+                                                            <div class="relative bg-red-500 pb-full">
+                                                                <template x-if="product.images">
+                                                                    <img
+                                                                        loading="lazy" class="absolute object-cover w-full h-full transform scale-125 "
+                                                                        :src="`/assets/${product.images[0]}`" alt=""
+                                                                        />
+                                                                </template>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="block text-sm leading-none" x-text="title(product.actual_title)"></span>
+                                                        </div>
+                                                    </div>
+                                                    {{# we con only ever delete from here, so just use toggle :)  #}}
+                                                    {{ partial:partials/download_centre/delete_button }}
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div>
+
+                                    <template x-if="selected_products.length == 0">
+                                        <div class="no-products">
+                                            <p class="">{{ no_products_text }}</p>
+                                        </div>
+                                    </template>
+                                    <div class="flex py-4 mt-4 border-t border-t-2 border-white footer ">
+                                        <a class="w-full px-2 py-1 text-white bg-light-blue" href="#" @click.default="download_view = true">
+                                            {{ go_to_text }}
+
+                                            <span>
+                                                ( <span x-text="selected_products.length"></span> )
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        {{ partial:partials/download_centre/cat top="md:top-56" pos_abs="md:absolute" }}
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </template>
+
+            <template x-if="download_view">
+                <div class="container">
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="col-span-4 md:col-span-3">
+                            <h1 class="mb-4 text-3xl font-bold"> {{ download_list_text }}</h1>
+
+                            <div class="grid grid-cols-8 gap-2 mb-2">
+                                <div class="hidden md:block md:col-span-3"></div>
+                                <div class="col-span-2 text-center md:col-span-1"
+                                    data-state="notselected"
+                                    @click="selectAll($event, 'download_centre_images')"
+                                >
+                                    <span class="pointer-events-none material-icons-sharp"
+                                    :class="{
+                                        'text-light-blue': all_selected.download_centre_images
+                                    }">
+                                        check_circle_outline
+                                    </span>
+                                </div>
+                                <div class="col-span-2 text-center md:col-span-1"
+                                    data-state="notselected"
+                                    @click="selectAll($event, 'download_centre_information_leaflet')"
+                                >
+                                    <span class="pointer-events-none material-icons-sharp"
+                                    :class="{
+                                        'text-light-blue': all_selected.download_centre_information_leaflet
+                                    }">
+                                        check_circle_outline
+                                    </span>
+                                </div>
+                                <div class="col-span-2 text-center md:col-span-1"
+                                    data-state="notselected"
+                                    @click="selectAll($event, 'download_centre_technical_data_sheet')"
+                                >
+                                    <span class="pointer-events-none material-icons-sharp"
+                                    :class="{
+                                        'text-light-blue': all_selected.download_centre_technical_data_sheet
+                                    }">
+                                        check_circle_outline
+                                    </span>
+                                </div>
+                                <div class="col-span-2 text-center md:col-span-1"
+                                    data-state="notselected"
+                                    @click="selectAll($event, 'download_centre_assembely_instructions')"
+                                >
+                                    <span class="pointer-events-none material-icons-sharp"
+                                    :class="{
+                                        'text-light-blue': all_selected.download_centre_assembely_instructions
+                                    }">
+                                        check_circle_outline
+                                    </span>
+                                </div>
+                                <div></div>
+                            </div>
+                            <template x-for="(product, index) in selected_products">
+
+                                <div class="grid grid-cols-8 gap-2 mb-2">
+                                    <div class="col-span-8 product-info md:col-span-3">
+                                        <div class="flex items-center">
+                                            <div class="w-10 mr-1 overflow-hidden border rounded max-w-2-5 min-w-2-5">
+                                                <div class="relative bg-red-500 pb-full">
+                                                    <template x-if="product.images">
+                                                        <img
+                                                            loading="lazy" class="absolute object-cover w-full h-full transform scale-125 "
+                                                            :src="`/assets/${product.images[0]}`" alt=""
+                                                            />
+                                                    </template>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <span class="block text-sm leading-none " x-text="title(product.actual_title)"></span>
+                                            </div>
+                                            <div class="flex self-stretch md:hidden">
+                                                {{ partial:partials/download_centre/delete_button text_size="text-4xl" }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex self-stretch col-span-2 images md:col-span-1">
+                                        {{ partial:partials/download_centre/button text="{ image_pack }" what="download_centre_images"}}
+                                    </div>
+                                    <div class="flex self-stretch col-span-2 info-leaflet md:col-span-1">
+                                        {{ partial:partials/download_centre/button text="{ info_leaflet }" what="download_centre_information_leaflet"}}
+                                    </div>
+                                    <div class="flex self-stretch col-span-2 technical-data-sheet md:col-span-1">
+                                        {{ partial:partials/download_centre/button text="{ technical_data }" what="download_centre_technical_data_sheet"}}
+                                    </div>
+                                    <div class="flex self-stretch col-span-2 assembly-instructions md:col-span-1">
+                                        {{ partial:partials/download_centre/button text="{ assembly_diagrams }" what="download_centre_assembely_instructions"}}
+                                    </div>
+                                    <div class="flex self-stretch hidden md:inline-flex">
+                                        {{ partial:partials/download_centre/delete_button text_size="text-4xl" }}
+                                    </div>
+                                </div>
+
+                            </template>
+
+                            <button class="px-2 py-1 mt-4 border rounded add-more hover:bg-blue hover:text-white" @click="download_view = !download_view">
+                                {{ add_more_text }} <span class="transform rotate-45">+</span>
+                            </button>
+
+                            <div class="my-4 border-t"></div>
+
+                            <div class="flex justify-end gap-2">
+                                <div class="mr-2">
+                                <form name="downloadAll" action="/download-centre/download-all" method="POST">
+                                    {{ csrf_field }}
+                                    <input type="hidden" name="products" :value="getSelectedProducts()">
+                                    <input type="hidden" name="download_centre_items" :value="download_centre_items">
+
+                                    <button type="submit" class="px-2 py-1 text-white rounded cursor-pointer bg-light-blue ">
+
+                                    {{ download_all_text }} (<span x-text="allItemsCount()"></span>)
+
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="mr-2">
+                                <form name="downloadSelected" action="/download-centre/download-selected" method="POST">
+
+                                    {{ csrf_field }}
+                                    <input type="hidden" name="products" :value="getSelectedProducts()">
+                                    <input type="hidden" name="download_centre_items" :value="download_centre_items">
+
+                                    <button type="submit" class="px-2 py-1 text-white rounded bg-light-blue">
+                                        {{ download_selection_text }} (<span x-text="selectedItemsCount()"></span>)
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-span-4 md:col-span-1">
+                            <h1 class="mb-4 text-3xl font-bold">{{ cat_title }}</h1>
+                            {{ partial:partials/download_centre/cat top="md:top-10" }}
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </section>
+    </template>
+</div>

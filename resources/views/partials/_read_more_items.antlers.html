@@ -1,0 +1,32 @@
+<section class="relative px-4 -mx-5  py-14 read-more bg-light-grey z-4">
+    <div class="container flex flex-col flex-none md:flex-row  justify-center z-4">
+        {{ read_more_items }}
+
+            <div class=" z-4 relative w-full md:w-80 p-6 mt-8 overflow-hidden text-white rounded-xl bg-light-blue read-more-item zoom-image md:mt-0 md:ml-12 md:mr-12 " style="height:416px;">
+                
+
+                
+                    <a href="{{ url }}" class="flex justify-center w-full h-full">
+                        
+                        {{ thumbnail}}
+                        
+                            <img class="absolute top-0 left-0 object-cover w-full h-full" src="{{ url }} " alt="{{ alt }}">
+                    
+                        {{ /thumbnail}}
+                        
+                        <div class="absolute bottom-0 left-0 bg-gradient-to-t from-gray-900 w-full h-1/3"></div>
+
+                        <div class="flex items-center relative mt-auto text-xl font-semibold pb-4">
+                            <span class="mr-4">{{ title }}</span>
+                            
+                            <span class="material-icons-sharp bg-white text-gray-700 rounded-full icon">
+                                    chevron_right
+                                </span>
+                        </div>
+                    </a>
+               
+            </div>
+
+        {{ /read_more_items}}
+    </div>
+</section>

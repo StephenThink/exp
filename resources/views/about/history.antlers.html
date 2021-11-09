@@ -1,0 +1,63 @@
+<div class="h-full min-h-screen px-5 pb-24 -mx-5 -mb-24 text-white bg-light-blue">
+
+    {{ partial:partials/hero mini="true" mobile_sub="white" }}
+        
+    {{# partial:partials/page_header title="Jonesco 1967 - {date format='Y'}" text_colour="white" #}}
+
+    <div class="history md:-mr-5 mt-4 md:mt-0">
+
+        {{ history }}
+            <div class="flex flex-wrap justify-between py-5 border border-b-0 border-l-0 border-r-0 md:flex-row md:ml-12 lg:ml-6 xl:ml-10 2xl:ml-0">
+                <div class="mb-5 md:w-7/12">
+                    <h2 class="text-xl font-bold"
+                    data-aos='fade-right'
+                                data-duration="900"
+                                data-aos-delay="300"
+                                data-easing="ease-in-out">{{ trans:jonesco.history.before }}{{ year format="Y" }}{{ trans:jonesco.history.after }}</h2>
+                    {{ if decade_image }}
+                    
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                    {{ decade_image }}
+                                        <img src="{{ url }}" alt="{{ alt }}" class=""
+                                        data-aos='fade-right'
+                                        data-duration="1500"
+                                        data-aos-delay="500"
+                                        data-easing="ease-in-out"
+                                        >
+                                        
+                                    {{ /decade_image}}
+                                </div>
+
+                            {{ else}}
+                                <div class="font-bold text-black pt-2 md:text-3xl"
+                                data-aos='fade-right'
+                                data-duration="1500"
+                                data-aos-delay="500"
+                                data-easing="ease-in-out"
+                                >{{ title }}</div>
+                    {{ /if }}
+                </div>
+                <div class="relative md:pl-6 divide-y divide-white md:w-5/12 ">
+                    {{ history_item }}
+                        <div class="py-8 history-item md:pr-20"
+                            data-aos='fade-right'
+                            data-duration="1500"
+                            data-aos-delay="500"
+                            data-easing="ease-in-out"
+                            >
+                            <div class="mb-2 text-xl font-bold">{{ year }}</div>
+                            <div>
+                                {{ text | nl2br }}
+                            </div>
+                        </div>
+                    {{ /history_item }}
+                </div>
+            </div>
+        {{ /history}}
+
+    </div>
+
+    {{# read more #}}
+    {{ partial:partials/_read_more_items }}
+
+</div>

@@ -1,0 +1,18 @@
+<div class="container my-6 text-sm text-gray-400">
+    <a href="{{ if homepage != "/"}}{{ homepage}}{{ /if }}/products/{{ segment_2 }}">
+        {{ if p_cat == "environmental"}}
+        Spill Containment
+        {{ else }}
+        {{ p_cat | deslugify | title }}
+        {{ /if }}
+    </a> 
+    > 
+    {{ if segment_4 }}<a href="{{ if homepage != "/"}}{{ homepage}}{{ /if }}/products/{{ segment_2 }}/{{ segment_3 }}">{{ category_title | deslugify | title }}</a>{{else}}
+    {{ category_title | deslugify | title }}
+    {{ /if }}
+    {{ if sortable_cat}}
+    > 
+    {{ sortable_cat | deslugify | title }}
+
+    {{ /if}}
+</div>

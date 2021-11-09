@@ -1,0 +1,8 @@
+box_title: 'Pour votre information...'
+box_content: |-
+  Ce site Web utilise des cookies à des fins d'analyse et de performance.
+
+  Si vous souhaitez lire notre politique de confidentialité, elle se trouve au bas du site.
+box_image: globals/J-logo_cookie.png
+left_button_label: Accepter
+right_button_label: 'Non, merci'

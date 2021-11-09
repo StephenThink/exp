@@ -1,0 +1,13 @@
+name: 'Alex Williams'
+roles:
+  - maintainer
+  - jonesco_admin
+  - 500_fixer
+groups:
+  - editor
+id: 14f64e0c-cc6f-462e-9340-95ec1e2ddddf
+password_hash: $2y$10$QQxpA807LSNiWsfRfJtz5u2d9m3Zj4.XNCeVXJU4s2j0/.Ke0b3qO
+preferences:
+  assets:
+    assets:
+      mode: table

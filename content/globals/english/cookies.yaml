@@ -1,0 +1,8 @@
+box_title: 'Just to let you know...'
+box_content: |-
+  This website uses cookies for analytics and performance purposes.
+
+  If you would like to read our privacy policy, it can be found at the bottom of the website.
+box_image: globals/J-logo_cookie.png
+left_button_label: Accept
+right_button_label: 'No, Thank you'

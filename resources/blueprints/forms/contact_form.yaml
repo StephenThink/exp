@@ -1,0 +1,112 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: speak_to
+        field:
+          options:
+            'null': 'Please Select'
+            sales: Sales
+            purchasing: Purchasing
+            customer: 'Customer Services'
+            despatch: Despatch
+            hr: HR
+            marketing: Marketing
+          multiple: false
+          max_items: 1
+          clearable: false
+          searchable: false
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: 'Who do you need to Speak to?'
+          type: select
+          icon: select
+          listable: hidden
+          localizable: true
+          validate:
+            - required
+      -
+        handle: your_name
+        field:
+          input_type: text
+          antlers: false
+          display: 'Your Name'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          validate:
+            - required
+      -
+        handle: your_email
+        field:
+          input_type: email
+          antlers: false
+          display: 'Your Email'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          validate:
+            - required
+      -
+        handle: telephone_number
+        field:
+          input_type: text
+          antlers: false
+          display: 'Telephone Number'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+          validate:
+            - required
+      -
+        handle: location
+        field:
+          input_type: text
+          antlers: false
+          display: Location
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+          validate:
+            - required
+      -
+        handle: your_company
+        field:
+          input_type: text
+          antlers: false
+          display: 'Your Company'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          validate:
+            - required
+      -
+        handle: company_website
+        field:
+          input_type: text
+          antlers: false
+          display: 'Company Website'
+          type: text
+          icon: text
+          localizable: true
+          listable: hidden
+          validate:
+            - required
+      -
+        handle: message
+        field:
+          antlers: false
+          display: Message
+          type: textarea
+          icon: textarea
+          listable: hidden
+          localizable: true
+          validate:
+            - required

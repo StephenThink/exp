@@ -1,0 +1,40 @@
+<section class="bg-blue {{#main__panel_small#}} {{ cta_light_header ? 'py-16' : 'py-10'}} px-4 -mt-24 2xl:-mt-0">
+    <div class="container text-center text-white text-2xl md:text-4xl">
+
+        <div class="flex flex-col justify-center gap-1">
+
+        {{ if need_custom_message }}
+        <div>
+            
+                <p class="">{{ cta_light_header }} <span class="font-bold"> {{ cta_bold_header }}</span></p>
+            
+            
+        </div>
+            {{ if need_link }}
+        <div>
+                <p class="mt-4">
+                    <span>{{ cta_before_link  }}</span>
+                    <a href="{{ cta_link }}" class="text-light-blue">
+                        {{ cta_link_text  }}
+                    </a>
+                    <span>{{ cta_after_link }}</span>
+                </p>
+            </div>
+            {{ /if }}
+        {{ else }}
+        <div class="font-bold">{{ work_smarter.heading }}</div>
+        <div>
+            <p class="mt-4">
+                <span>{{ work_smarter.before_link }}</span>
+                <a href="{{ work_smarter.smarter_link}}" class="text-light-blue">
+                    {{ work_smarter.get_in_touch_text }}
+                </a>
+                <span>{{ work_smarter.after_link }}</span>
+            </p>
+        </div>
+        {{ /if }} 
+        </div>   
+    </div>
+
+    
+</section>

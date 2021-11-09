@@ -1,0 +1,13 @@
+@import "tailwindcss/base";
+
+@import "site";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import "flickity/css/flickity";
+
+@import "aos/dist/aos.css";
+
+/* @import "flag-icon-css/css/flag-icon.min.css"; */

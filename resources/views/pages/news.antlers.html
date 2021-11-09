@@ -1,0 +1,21 @@
+<div class="h-full">
+
+    {{ partial:partials/page_header }}
+
+    <div class="container main__panel pt-0 flex flex-wrap ">
+        {{ collection:news as="posts"  }}
+            {{ posts chunk="3" sort="date" }}
+                <div class="grid grid-cols-1  gap-x-8 w-full mb-12 md:grid-flow-col md:grid-cols-3">
+                    {{ chunk }}
+                        {{ if {increment} == 9 || featured_post == true }}
+                            {{ partial:partials/featured_post }}
+                        {{ else }}
+                            {{ partial:partials/blog_post }}
+                        {{ /if }}
+                    {{ /chunk}}
+                </div>
+            {{ /posts}}
+        {{ /collection:news }}
+    </div>
+
+</div>

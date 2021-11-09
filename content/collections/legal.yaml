@@ -1,0 +1,15 @@
+title: Legal
+sites:
+  - english
+  - france
+  - usa
+  - germany
+  - spain
+template: default
+layout: layout
+revisions: false
+route: '/legal/{slug}'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private

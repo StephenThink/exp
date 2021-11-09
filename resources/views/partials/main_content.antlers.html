@@ -1,0 +1,44 @@
+{{ if ! without_panel }}
+<div class="container main__panel w-11/12 md:w-1/2">
+{{ /if }}
+
+    {{ if blue_intro }}
+        <div class="text-light-blue blog-post">
+            {{ blue_intro }}
+        </div>
+    {{ /if }}
+
+    {{ if content_intro }}
+        <div class="mt-5 blog-post">
+            {{ content_intro }}
+        </div>
+    {{ /if }}
+
+    {{ if content_image }}
+        <div class="mt-5">
+            {{ content_image}}
+                <img src="{{ url }}" alt="{{ alt }}">
+            {{ /content_image}}
+        </div>
+    {{ /if }}
+    
+    {{ if content_after_image}}
+        <div class="mt-5 blog-post">
+            {{ content_after_image }}
+        </div>
+    {{ /if }}
+    
+    {{ if content_quote }}
+        <blockquote class="mt-5 blog-post">
+            {{ content_quote }}
+        </blockquote>
+    {{ /if }}
+    
+    {{ if content_outro }}
+        <div class="mt-5 blog-post">
+            {{ content_outro }}
+        </div>
+    {{ /if }}
+{{ if ! without_panel }}
+</div>
+{{ /if }}

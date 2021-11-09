@@ -1,0 +1,173 @@
+title: 'Contact Us'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: hero
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: left_side_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Left Side Title'
+          type: text
+          icon: text
+          localizable: true
+          width: 50
+          listable: hidden
+      -
+        handle: right_side_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Right Side Title'
+          type: text
+          icon: text
+          listable: hidden
+          width: 50
+          localizable: true
+      -
+        handle: right_side_subheader
+        field:
+          input_type: text
+          antlers: false
+          display: 'Right Side Subheader'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  socials:
+    display: Socials
+    fields:
+      -
+        handle: socials
+        field:
+          collapse: false
+          sets:
+            social:
+              display: Social
+              fields:
+                -
+                  handle: social_icon
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: 'Social Icon'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: social_link
+                  field:
+                    display: 'Social Link'
+                    type: link
+                    icon: link
+                    listable: hidden
+          display: Socials
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true
+  jonesco_sites:
+    display: 'Jonesco Sites'
+    fields:
+      -
+        handle: jonesco_sites
+        field:
+          collapse: false
+          sets:
+            site:
+              display: Site
+              fields:
+                -
+                  handle: site_name
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Site Name'
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: site_image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: 'Site Image'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: address
+                  field:
+                    antlers: false
+                    display: Address
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                -
+                  handle: number
+                  field:
+                    input_type: tel
+                    antlers: false
+                    display: Number
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: find_us_link
+                  field:
+                    antlers: false
+                    display: 'Find us link'
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+          display: 'Jonesco Sites'
+          type: replicator
+          icon: replicator
+          listable: hidden

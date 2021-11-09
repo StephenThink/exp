@@ -1,0 +1,5 @@
+<div class="container main__panel_small pt-10 pb-15">
+    <h1 class="text-4xl md:text-5xl text-{{ text_colour ?? 'black' }} font-bold pt-10 break-words" data-aos="fade-down" data-aos-duration="1000">{{ title }}</h1>
+    <p class="w-full {{ !full-width ? 'md:w-7/12' : '' }} text-2xl mt-4 " data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">{{ intro ?? introduction | nl2br }}</p>
+</div>
+

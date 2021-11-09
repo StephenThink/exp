@@ -1,0 +1,6 @@
+title: 'Vacancy Application'
+honeypot: jonesco_vacancy_box
+email:
+  -
+    to: marketing@jonesco-plastics.com
+    subject: 'Vacancy Submission'

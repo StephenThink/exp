@@ -1,0 +1,29 @@
+origin: english
+newsletter_title: 'reste en contact'
+newsletter_intro: 'Tenez-vous au courant de nos dernières actualités en vous abonnant à notre newsletter'
+social_media:
+  -
+    social_image: contact/socials/linkedin.svg
+    social_linkage: 'https://www.linkedin.com/company/1375422/'
+    type: socials
+    enabled: false
+  -
+    social_image: contact/socials/linkedin.svg
+    social_linkage: 'https://www.linkedin.com/showcase/jonesco-seclin/'
+    type: socials
+    enabled: true
+  -
+    social_image: contact/socials/twitter-new.svg
+    social_linkage: 'https://twitter.com/JonescoGroup'
+    type: socials
+    enabled: true
+  -
+    social_image: contact/socials/facebook-new.svg
+    social_linkage: 'https://www.facebook.com/JonescoGroup'
+    type: socials
+    enabled: true
+  -
+    social_image: contact/socials/youtube.svg
+    social_linkage: 'https://www.youtube.com/user/JONESCOPLASTICS'
+    type: socials
+    enabled: true

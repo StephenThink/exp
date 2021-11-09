@@ -1,0 +1,17 @@
+title: 'Read More Navigation'
+fields:
+  -
+    handle: read_more_items
+    field:
+      max_items: 3
+      mode: default
+      collections:
+        - about
+        - pages
+        - working_here
+        - what_we_do
+      display: 'Read More Items'
+      type: entries
+      icon: entries
+      listable: hidden
+      localizable: true

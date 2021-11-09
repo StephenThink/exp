@@ -1,0 +1,18 @@
+<div class="container grid grid-cols-2 md:flex md:flex-wrap gap-2 justify-center {{ classes }}">
+
+    {{ card_grid }}
+
+        <div class="border rounded p-4 text-center w-full md:w-1/4.1" data-aos="flip-{{ random data="left|right" }}" data-aos-duration="2000" data-aos-delay="{{ random data="50|100|150|200|250|300|350|400" }}" >
+            {{ if icon }}
+                <div class="mb-2">
+                    {{ icon }}
+                        {{ svg src="{{ url }}" class="mx-auto h-16"}}
+                    {{ /icon }}
+                </div>
+            {{ /if }}
+            <p class="font-bold mb-2">{{ title }}</p>
+            <p class="text-sm">{{ text }}</p>
+        </div>
+    {{ /card_grid }}
+
+</div>

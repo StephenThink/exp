@@ -1,0 +1,84 @@
+title: Enviroment
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        import: hero
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Thumbnail
+          type: assets
+          icon: assets
+          localizable: true
+          listable: hidden
+      -
+        import: wavebox
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  card_grid:
+    display: 'Card Grid'
+    fields:
+      -
+        import: card_grid
+  wave_box_content:
+    display: 'Wave Box Content'
+    fields:
+      -
+        handle: grid_content
+        field:
+          collapse: false
+          sets:
+            wavebox_content:
+              display: 'Wavebox Content'
+              fields:
+                -
+                  import: wavebox
+          display: 'Grid Content'
+          type: replicator
+          icon: replicator
+          localizable: true
+          listable: hidden

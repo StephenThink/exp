@@ -1,0 +1,25 @@
+name: Manesh
+roles:
+  - jonesco_admin
+parent_categories:
+  - commercial-vehicle
+  - fire-and-safety
+  - environmental
+  - storage
+id: 141f3b86-3e62-4f72-85d1-326539da375d
+password_hash: $2y$10$uIG6y61EM8AtDw/1QKMs4OQCMdrqKaLtEZ6M3gQMRK7vOt.cSPAt6
+preferences:
+  assets:
+    assets:
+      mode: table
+  collections:
+    about:
+      after_save: continue_editing
+    what_we_do:
+      after_save: continue_editing
+    pages:
+      after_save: continue_editing
+    working_here:
+      after_save: continue_editing
+    products:
+      after_save: continue_editing

@@ -1,0 +1,38 @@
+tree:
+  -
+    title: Explore
+    children:
+      -
+        entry: fcf8359a-20e0-4e6e-a442-8cbdb619dbec
+      -
+        entry: 6fac8551-9a67-4fdb-b069-9a83e21e7e88
+  -
+    title: 'Meet us'
+    children:
+      -
+        entry: bbd49de7-82b0-4045-a590-a91d55cc9125
+      -
+        entry: a22be05d-de83-4372-ad6c-761b45ceb142
+  -
+    title: Learn
+    children:
+      -
+        entry: 0303ab23-1f14-4737-a047-8e6825159d33
+      -
+        entry: 8085ef40-add0-45a6-85ce-cd9f6b4abb6c
+  -
+    title: 'Work here'
+    children:
+      -
+        entry: fbd95797-1db8-4c74-ac68-de0affaa4b6a
+      -
+        entry: 85dd955f-a2b7-45db-a834-7ec8f7c397f9
+  -
+    title: 'Jonesco Catalogues'
+    children:
+      -
+        title: 'CV Catalogue'
+        url: 'https://jonesco-website-data.s3.eu-west-2.amazonaws.com/Commercial+Vehicle+Catalogue+EN.pdf'
+      -
+        title: 'Product Catalogue'
+        url: 'https://jonesco-website-data.s3.eu-west-2.amazonaws.com/Product+Catalogue+EN.pdf'

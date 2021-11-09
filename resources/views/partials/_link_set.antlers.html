@@ -1,0 +1,13 @@
+<div class="container flex items-center justify-center pb-12 gap-4">
+
+    {{ link_set }}
+        {{ entry }}        
+            <div class="w-1/2 md:w-1/6 rounded p-4  bg-blue-100 text-blue transform transition duration-500 hover:bg-blue hover:text-white hover:shadow-2xl hover:-translate-y-2 ">
+                <p class="font-bold mb-2">{{ link_text ?? title }}</p>
+                <p class="text-sm">{{ text }}</p>
+                <a href="{{ url }}">{{ trans:jonesco.site.readmore }}</a>
+            </div>
+        {{ /entry }}
+    {{ /link_set }}
+
+</div>

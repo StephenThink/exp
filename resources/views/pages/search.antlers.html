@@ -1,0 +1,56 @@
+<div class="min-h-full">
+    <div class="container main__panel ">
+        <div class="w-full md:w-2/3 mx-auto">
+            
+            
+            {{ search:results  as="results" paginate="true" offset="get:page"  }}
+            {{ if no_results }}
+            {{ else }}
+                <h2 class="text-4xl font-bold mb-6">
+                    {{ trans:jonesco.site.paginate.showing }}
+
+                    1 {{ trans:jonesco.site.paginate.of }} {{ total_results }}
+{{#
+                    {{ trans:jonesco.site.paginate.results }}
+                    -
+                    {{total_results}}#}}
+                </h2>
+         {{ /if }}
+                <div class="grid divide-y mb-24">
+                    {{ if no_results }}
+                        <p>{{ trans:jonesco.site.paginate.no_results }}</p>
+                    {{ else }}
+                        {{ results  }}
+                        
+                        
+                        
+                            <div class="py-5 {{ last ? '' : border-b-2 border-grey-400 }}">
+
+                                <div class="grid grid-cols-5 justify-center">
+                                    <div class="col-span-1">
+                                            {{ images.0 }}
+                                            <img src="{{url}}" alt="" class="w-full h-full items-center object-contain">
+                                        {{ /images.0 }}
+                                    </div>
+                                    <div class="col-span-4 justify-center">
+                                            <div class=" w-full md:w-1/3 text-white  h-7 rounded-xl text-center items-center flex justify-center" style="background:{{parent_category.0.accent_colour}}">{{ parent_category.0.title }}</div>
+                                            <p class="text-2xl font-bold mt-4 mb-2">{{ actual_title }}</p>
+                                            <p class="text-1xl my-2 text-gray-900">{{ part_number }} {{ value }} <span class="font-bold">{{ !last ? '/' : '' }}</span> {{ /part_number }} </p>
+                                            <p class="">{{ body | safe_truncate:250:... }} <br> <a class="text-light-blue" href="{{if homepage!="/"}}{{homepage}}{{/if}}/products/{{ parent_category.0.slug }}/{{ sub_categories.0.slug }}/{{ slug }}">{{ trans:jonesco.site.readmore }}</a></p>
+                                    </div>  
+                                </div>
+                                
+                                
+                            </div>
+                        
+                        
+                        {{ /results }}
+                        
+                    {{ /if }}
+                </div>
+
+            {{ /search:results }}
+
+        </div>
+    </div>
+</div>

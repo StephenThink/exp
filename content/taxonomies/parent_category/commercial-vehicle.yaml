@@ -1,0 +1,40 @@
+title: 'Commercial Vehicle'
+updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+updated_at: 1631870866
+blueprint: parent_category
+image: products/commercial-vehicle/mudguards/single-arch/highgard/images-lr/Product_Image_776x776_(518x518_focus_area)-HL26B_03.jpg
+accent_colour: 'rgba(87, 87, 86, 1)'
+accent_title: 'Other products in this range'
+assets: accents/Fluid_Grey.svg
+bctatitle: Test
+bctacontent: 'Content Test'
+blue_call_to_action_heading: 'Test Heading'
+blue_call_to_action_content: 'Test Content'
+bcta_heading: 'Test He'
+accent_image: accents/Fluid_Grey.svg
+short_title: CV
+sjj: 1
+mf: products/commercial-vehicle/mudguards/mudguard_filter_bar-ENGLISH.png
+localizations:
+  france:
+    title: 'Véhicules Industriels'
+    short_title: Véhicule
+    accent_title: 'Autres produits de cette gamme'
+    mf: products/commercial-vehicle/mudguards/mudguard_filter_bar-FRENCH.png
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1631786965
+  germany:
+    title: Nutzfahrzeug
+    short_title: NFZ
+    accent_title: 'Andere Produkte in dieser Reihe'
+    mf: products/commercial-vehicle/mudguards/mudguard_filter_bar-GERMAN.png
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1631787070
+  spain:
+    title: 'Vehículos Comerciales'
+    accent_colour: 'rgba(87, 87, 86, 1)'
+    short_title: Vehículos
+    accent_title: 'Otros productos de esta gama'
+    mf: products/commercial-vehicle/mudguards/mudguard_filter_bar-SPANISH.png
+    updated_by: b1671d61-d80a-4045-93e3-2b5d3fa2d941
+    updated_at: 1632324000

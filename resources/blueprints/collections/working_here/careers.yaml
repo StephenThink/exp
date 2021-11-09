@@ -1,0 +1,194 @@
+title: Careers
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+          localizable: true
+      -
+        import: hero
+      -
+        handle: intro_message
+        field:
+          input_type: text
+          antlers: false
+          display: 'Intro Message'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+      -
+        handle: thumbnail
+        field:
+          mode: grid
+          container: assets
+          folder: /
+          restrict: false
+          allow_uploads: true
+          max_files: 1
+          display: Thumbnail
+          type: assets
+          icon: assets
+          localizable: true
+          listable: hidden
+      -
+        import: wavebox
+      -
+        import: blue_call_to_action
+      -
+        import: read_more_navigation
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+  working:
+    display: 'Working Here'
+    fields:
+      -
+        handle: working_here_heading
+        field:
+          input_type: text
+          antlers: false
+          display: 'Working Here Heading'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+      -
+        handle: working_here
+        field:
+          collapse: false
+          sets:
+            working_here_set:
+              display: 'Working Here Set'
+              fields:
+                -
+                  handle: icon
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: 'Working Here Image'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: working_here_title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Working Here Title'
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: working_here_description
+                  field:
+                    antlers: false
+                    display: 'Working Here Description'
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+          display: 'Working Here'
+          type: replicator
+          icon: replicator
+          localizable: true
+          listable: hidden
+  benefits:
+    display: 'Your Benefits'
+    fields:
+      -
+        handle: your_benefit_heading
+        field:
+          input_type: text
+          antlers: false
+          display: 'Your Benefit Heading'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+      -
+        handle: your_benefits
+        field:
+          collapse: false
+          sets:
+            your_benefits_set:
+              display: 'Your Benefits Set'
+              fields:
+                -
+                  handle: icon
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: 'Your Benefits Image'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: your_benefits_title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Your Benefits Title'
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: your_benefits_description
+                  field:
+                    antlers: false
+                    display: 'Your Benefits Description'
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+          display: 'Your Benefits'
+          type: replicator
+          icon: replicator
+          localizable: true
+          listable: hidden
+  wave_box_content:
+    display: 'Wave Box Content'
+    fields:
+      -
+        handle: grid_content
+        field:
+          collapse: false
+          sets:
+            wavebox_content:
+              display: 'Wavebox Content'
+              fields:
+                -
+                  import: wavebox
+          display: 'Grid Content'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true

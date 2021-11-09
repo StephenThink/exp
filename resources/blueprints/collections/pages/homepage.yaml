@@ -1,0 +1,171 @@
+title: Homepage
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+          localizable: true
+      -
+        handle: grid_content
+        field:
+          collapse: false
+          sets:
+            grid:
+              display: grid
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: heading
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Heading
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: paragraph
+                  field:
+                    antlers: false
+                    display: Paragraph
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                -
+                  handle: link_text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Link Text'
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: link_to
+                  field:
+                    max_items: 1
+                    mode: default
+                    display: 'Link To'
+                    type: entries
+                    icon: entries
+                    listable: hidden
+          display: 'Grid Content'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true
+      -
+        handle: what_we_do_section
+        field:
+          input_type: text
+          antlers: false
+          display: 'What We Do Section'
+          type: text
+          icon: text
+          instructions: 'Section for any translateable text in the section'
+          listable: hidden
+          localizable: true
+      -
+        handle: grid_content_after
+        field:
+          collapse: false
+          sets:
+            grid:
+              display: grid
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                -
+                  handle: heading
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Heading
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: paragraph
+                  field:
+                    antlers: false
+                    display: Paragraph
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                -
+                  handle: link_text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Link Text'
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: link_to
+                  field:
+                    max_items: 1
+                    mode: default
+                    display: 'Link To'
+                    type: entries
+                    icon: entries
+                    listable: hidden
+          display: 'Grid Content After'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          localizable: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+  carousel:
+    display: Carousel
+    fields:
+      -
+        import: carousel_slider
